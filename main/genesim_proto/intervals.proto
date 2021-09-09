@@ -1,0 +1,63 @@
+syntax = "proto3";
+package genesim_proto;
+
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+
+
+
+message BaseInterval {
+  // Duration could be optional; if we group a list of same duration intervals.
+  google.protobuf.Duration duration = 2;
+  google.protobuf.Timestamp interval_end = 3;
+}
+
+message BaseIntervalGroup{
+  int32 id =  1;
+  string name = 2;
+  google.protobuf.Duration duration = 4;
+  repeated BaseInterval base_intervals = 3;
+
+}
+
+message Span{
+  // okay so my goal is to have this span somewhat comprehensive, so that it would be used often
+  // for an asset telemetry or market product or 
+  // probably always a subset of features would be empty/unused.
+  // support a few different ways to define/reference to a time-span.
+  int32 id = 1;
+  string name = 3;
+  google.protobuf.Timestamp begin_time = 5;
+  google.protobuf.Timestamp end_time = 6;
+  repeated BaseInterval base_intervals = 10;
+  int32 base_interval_group_id = 11;
+  BaseIntervalGroup base_interval_group = 12;
+}
+
+// this is probably not needed; included in the horizon
+// message SpanGroup{  
+//   int32 id = 1;
+//   string name = 2;
+//   repeated Span spans = 3;
+// }
+
+// this is probably not needed; included in the horizon
+// message HorizonIntervals{
+//   // this is to link a group of base intervals to a group of spans; not sure if this is actually needed/useful.
+//   int32 id = 1;
+//   string name = 2;
+//   repeated BaseInterval base_intervals = 3;
+//   repeated int32 span_ids = 4;
+// }
+
+message Horizon{
+  // this is to define a group of BaseIntervals or Spans 
+  // also can be used to link one group to another 
+  int32 id = 1;
+  string name = 2;
+  repeated Span spans = 5;
+  repeated BaseInterval base_intervals = 6;
+  BaseIntervalGroup interval_group = 7;
+  repeated int32 span_ids = 10;
+}
