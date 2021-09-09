@@ -8,9 +8,11 @@ import "google/protobuf/duration.proto";
 
 
 message BaseInterval {
-  // Duration could be optional; if we group a list of same duration intervals.
+  // Duration could be optional; if we group a list of same duration intervals; then we could mark with one field (interval_end)
+  // if we have a group of intervals we probably won't use both begin and end to mark them; still we place it here. 
   google.protobuf.Duration duration = 2;
   google.protobuf.Timestamp interval_end = 3;
+  google.protobuf.Timestamp interval_begin = 5;
 }
 
 message BaseIntervalGroup{
@@ -60,4 +62,21 @@ message Horizon{
   repeated BaseInterval base_intervals = 6;
   BaseIntervalGroup interval_group = 7;
   repeated int32 span_ids = 10;
+}
+
+
+message IntervalValue{
+  int32 id = 1;
+  string name = 2;
+  string unit = 5;
+  BaseInterval interval = 6;
+  double value = 10;
+}
+
+
+message IntervalValueGroup{
+  int32 id = 1;
+  string name = 2;
+  string unit = 5;
+  repeated IntervalValue interval_values = 10;
 }
