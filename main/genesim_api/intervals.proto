@@ -1,5 +1,5 @@
 syntax = "proto3";
-package genesim_proto;
+package genesim_api;
 
 
 import "google/protobuf/timestamp.proto";
@@ -10,7 +10,10 @@ import "google/protobuf/duration.proto";
 message BaseInterval {
   // Duration could be optional; if we group a list of same duration intervals; then we could mark with one field (interval_end)
   // if we have a group of intervals we probably won't use both begin and end to mark them; still we place it here. 
-  google.protobuf.Duration duration = 2;
+  int32 id =  1;
+  string name = 2;
+
+  google.protobuf.Duration duration = 4;
   google.protobuf.Timestamp interval_end = 3;
   google.protobuf.Timestamp interval_begin = 5;
 }
@@ -23,15 +26,18 @@ message BaseIntervalGroup{
 
 }
 
-message Span{
+message Interval{
   // okay so my goal is to have this span somewhat comprehensive, so that it would be used often
   // for an asset telemetry or market product or 
   // probably always a subset of features would be empty/unused.
   // support a few different ways to define/reference to a time-span.
   int32 id = 1;
-  string name = 3;
-  google.protobuf.Timestamp begin_time = 5;
-  google.protobuf.Timestamp end_time = 6;
+  string name = 2;
+
+  google.protobuf.Duration duration = 4;
+  google.protobuf.Timestamp interval_end = 3;
+  google.protobuf.Timestamp interval_begin = 5;
+
   repeated BaseInterval base_intervals = 10;
   int32 base_interval_group_id = 11;
   BaseIntervalGroup base_interval_group = 12;
@@ -39,7 +45,7 @@ message Span{
 
 // this is probably not needed; included in the horizon
 // message SpanGroup{  
-//   int32 id = 1;
+//   nt32 id = 1;
 //   string name = 2;
 //   repeated Span spans = 3;
 // }
@@ -58,25 +64,53 @@ message Horizon{
   // also can be used to link one group to another 
   int32 id = 1;
   string name = 2;
-  repeated Span spans = 5;
+  repeated Interval intervals = 5;
   repeated BaseInterval base_intervals = 6;
   BaseIntervalGroup interval_group = 7;
-  repeated int32 span_ids = 10;
+  repeated int32 interval_ids = 10;
 }
 
 
-message IntervalValue{
+message Quantity{
   int32 id = 1;
   string name = 2;
+
   string unit = 5;
-  BaseInterval interval = 6;
+  double value = 6;
+  Interval interval = 10;
+}
+
+
+
+message IntervalQuantity{
+  int32 id = 1;
+  string name = 2;
+
+  Interval interval = 6;
+  BasicQuantity quantity = 7;
+}
+// okay so basically  here we allow a very loose defenition for the interval format(
+// it can be two stamps,  one stamp&a duration, 
+// (the base intervals will be mostly for internal mapping, maybe even not good to have it in intf)
+//  well the need to have a BaseInterval which is the model resolution, is kind of affecting the defenitions
+//  the Interval and BaseInterval are the same thing.
+
+
+message BasicQuantity{
+  int32 id = 1;
+  string name = 2;
+
+  string unit = 5;
   double value = 10;
 }
 
 
-message IntervalValueGroup{
+message IntervalQuantityGroup{
   int32 id = 1;
   string name = 2;
+
   string unit = 5;
-  repeated IntervalValue interval_values = 10;
+  repeated IntervalQuantity interval_values = 10;
 }
+
+// shoud change the unit type to enum
