@@ -106,7 +106,6 @@ message BatteryInterval {
 
 
 message BatteryService {
-
     //  can we have a service/product that is a combination of these basic services? 
     // like peak shaving, is a bit of backup and a bit of regulation
     //  even regulation is not something of continous, so would we populate both of these for a product,
@@ -117,7 +116,6 @@ message BatteryService {
     BatteryServiceArbitrage arbitrage = 4;
     BatteryServiceBackupPower  backup_power = 5;
     BatteryServiceSetpointFollow setpoint_following = 6;
-
 }
 
 message BatteryServiceArbitrage {
@@ -125,13 +123,14 @@ message BatteryServiceArbitrage {
     string name = 2;
 
     repeated EnergySource sources = 5;
+    bool cross_market_convergence_arbitrage = 7; // default would be false
 }
 
 message EnergySource{
+    //  this is related to economic source, the asset can only have one electric source (connection point)
+    //  should economics of these products be under separate tree?
     int32 id = 1;
     string name = 2;
-
-
 
     MarketProductEnergy market_product_energy = 5;
     int32 market_product_energy_id = 6;
@@ -141,14 +140,14 @@ message EnergySource{
 
     EnergySourceLocal energy_source_local = 12;
     int32 energy_source_local_id = 13;
-
-
 }
 
 
 message MarketProductEnergy {
     int32 id = 1;
     string name = 2;
+
+    IntervalQuantityGroup price = 5;
 
 }
 

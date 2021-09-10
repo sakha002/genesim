@@ -10,21 +10,15 @@ import "google/protobuf/duration.proto";
 message BaseInterval {
   // Duration could be optional; if we group a list of same duration intervals; then we could mark with one field (interval_end)
   // if we have a group of intervals we probably won't use both begin and end to mark them; still we place it here. 
-  int32 id =  1;
-  string name = 2;
+  // int32 id =  1;
+  // string name = 2;
 
   google.protobuf.Duration duration = 4;
   google.protobuf.Timestamp interval_end = 3;
-  google.protobuf.Timestamp interval_begin = 5;
+  // google.protobuf.Timestamp interval_begin = 5;
 }
 
-message BaseIntervalGroup{
-  int32 id =  1;
-  string name = 2;
-  google.protobuf.Duration duration = 4;
-  repeated BaseInterval base_intervals = 3;
 
-}
 
 message Interval{
   // okay so my goal is to have this span somewhat comprehensive, so that it would be used often
@@ -38,37 +32,31 @@ message Interval{
   google.protobuf.Timestamp interval_end = 3;
   google.protobuf.Timestamp interval_begin = 5;
 
-  repeated BaseInterval base_intervals = 10;
-  int32 base_interval_group_id = 11;
-  BaseIntervalGroup base_interval_group = 12;
+  BaseInterval base_interval = 10; // this is used when defining a long time span that we wish to break in smaller resolution; e.g. simulation-horizon
 }
 
-// this is probably not needed; included in the horizon
-// message SpanGroup{  
-//   nt32 id = 1;
-//   string name = 2;
-//   repeated Span spans = 3;
-// }
 
-// this is probably not needed; included in the horizon
-// message HorizonIntervals{
-//   // this is to link a group of base intervals to a group of spans; not sure if this is actually needed/useful.
+message IntervalGroup{
+  //  should be sought if it is needed or covered by horizon
+  int32 id =  1;
+  string name = 2;
+  google.protobuf.Duration duration = 4; // for same duration intervals 
+  repeated Interval intervals = 3;
+
+  repeated BaseInterval base_intervals = 6; // this won't be provided by the user mostly; should we still keept it here?
+
+}
+
+// message Horizon{
+//   // this is to define a group of BaseIntervals or Spans 
+//   // also can be used to link one group to another 
 //   int32 id = 1;
 //   string name = 2;
-//   repeated BaseInterval base_intervals = 3;
-//   repeated int32 span_ids = 4;
+//   repeated Interval intervals = 5;
+//   repeated BaseInterval base_intervals = 6;
+//   BaseIntervalGroup interval_group = 7;
+//   repeated int32 interval_ids = 10;
 // }
-
-message Horizon{
-  // this is to define a group of BaseIntervals or Spans 
-  // also can be used to link one group to another 
-  int32 id = 1;
-  string name = 2;
-  repeated Interval intervals = 5;
-  repeated BaseInterval base_intervals = 6;
-  BaseIntervalGroup interval_group = 7;
-  repeated int32 interval_ids = 10;
-}
 
 
 message Quantity{
@@ -80,7 +68,13 @@ message Quantity{
   Interval interval = 10;
 }
 
+message QuantityGroup {
+  int32 id = 1;
+  string name = 2;
 
+  string unit = 5;
+  repeated Quantity quantitys = 10;
+}
 
 message IntervalQuantity{
   int32 id = 1;
@@ -105,12 +99,21 @@ message BasicQuantity{
 }
 
 
+message BasicQuantityGroup{
+  int32 id = 1;
+  string name = 2;
+
+  string unit = 5;
+  repeated BasicQuantity quantitys = 10;
+}
+
+
 message IntervalQuantityGroup{
   int32 id = 1;
   string name = 2;
 
   string unit = 5;
-  repeated IntervalQuantity interval_values = 10;
+  repeated IntervalQuantity interval_quantitys = 10;
 }
 
 // shoud change the unit type to enum
