@@ -1,5 +1,5 @@
 syntax = "proto3";
-package genesim_api;
+package genesys;
 
 
 import "google/protobuf/timestamp.proto";
