@@ -26,18 +26,21 @@ message AssetGroup {
 
 }
 
-
 enum AssetGroupType {
     PHYSICAL = 0;
     FINANCIAL = 1;
 }
 
-
 message AssetGroupOperationLimits {
     int32 id = 1;
     string name = 2;
 
+    IntervalQuantityGroup import_max_power = 5;
+    IntervalQuantityGroup export_max_power = 6;
 
+    BasicQuantity import_max_energy = 9;
+    BasicQuantity export_max_energy = 10;
+    //  the actual operational limits needed for different kinds of asset groups and suited types is TBD.
 
 }
 
@@ -49,8 +52,33 @@ message AssetGroupEconomic {
     int32 id = 1;
     string name = 2;
 
+    MarketProduct market_product = 5;
+    UtilityTariff utility_tariff = 6;
 
+}
 
+message MarketProduct {
+    int32 id = 1;
+    string name = 2;
+
+    MarketProductEnergy energy_product = 5;
+    MarketProductCapacity capacity_product = 6; 
+
+    MarketSettlementPoint market_settlement_point = 9;
+}
+
+message MarketSettlementPoint {
+    int32 id = 1;
+    string name = 2;
+
+    int32 market_id = 5;
+    int32 settlmemnt_point_id = 6;
+    // TBD
+}
+
+message UtilityTariff {
+    int32 id = 1;
+    string name = 2;
 }
 
 message EnergySourceEconomic{
@@ -61,7 +89,7 @@ message EnergySourceEconomic{
 
     repeated int32 asset_ids = 4;
 
-    MarketProductEnergy market_product_energy = 5;
+    MarketProductEnergy market_product_energy = 5; // probably won't place the product info here.?
     int32 market_product_energy_id = 6;
 
     UtilityTariffEnergy utility_tariff_energy = 9;
@@ -71,15 +99,23 @@ message EnergySourceEconomic{
     int32 energy_source_local_id = 13;
 }
 
-
 message MarketProductEnergy {
     int32 id = 1;
     string name = 2;
 
     IntervalQuantityGroup price = 5;
+    // TBD
 
 }
 
+message MarketProductCapacity {
+    int32 id = 1;
+    string name = 2;
+
+    IntervalQuantityGroup price = 5;
+    //  TBD
+
+}
 
 message UtilityTariffEnergy {
     int32 id = 1;
@@ -90,5 +126,7 @@ message UtilityTariffEnergy {
 message EnergySourceLocal {
     int32 id = 1;
     string name = 2;
+
+    IntervalQuantityGroup price = 5;
 
 }
