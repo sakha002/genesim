@@ -61,9 +61,11 @@ message BatteryEnergy {
     BatteryEnergyOperationLimit operation_limit = 4;
     BatteryEnergyNominalLimit nominal_limit = 5;
 
-
     BasicQuantity initial_energy =7;
     BasicQuantity terminal_energy =8;
+
+    BasicQuantity initial_energy_avrg_cost = 11;
+    BasicQuantity terminal_energy_avrg_cost = 12;
 
 }
 

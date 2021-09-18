@@ -54,8 +54,49 @@ message AssetGroupEconomic {
 
     MarketProduct market_product = 5;
     UtilityTariff utility_tariff = 6;
+    LocalCustomPrice local_custom_price =7;
+
+    int32 market_product_price_id = 9;
+    int32 utility_tariff_price_id = 10;
+    int32 local_custom_price_id = 11;
+
+    // eligible products/active products
+}
+
+message EnergySourceEconomic{
+    //  this is related to economic source, the asset can only have one electric source (connection point)
+    //  should economics of these products be under separate tree?
+    int32 id = 1;
+    string name = 2;
+
+    repeated int32 asset_ids = 4;
+    MarketProductEnergy market_product = 5; // probably won't place the product info here.?
+    int32 market_product_id = 6;
+
+    UtilityTariffEnergy utility_tariff = 9;
+    int32 utility_tariff_id = 10;
+
+    LocalCustomPrice source_local = 12;
+    int32 energy_source_local_id = 13;
 
 }
+
+/////////////////////////////////
+message Price{
+    int32 id = 1;
+    string name = 2;
+
+    PriceMarketProduct market_product_price = 5;
+    PriceUtilityTariff utility_tariff_price = 6;
+    PriceLocalCustom   custom_local_price = 7;
+
+
+}
+
+
+
+
+
 
 message MarketProduct {
     int32 id = 1;
@@ -81,23 +122,7 @@ message UtilityTariff {
     string name = 2;
 }
 
-message EnergySourceEconomic{
-    //  this is related to economic source, the asset can only have one electric source (connection point)
-    //  should economics of these products be under separate tree?
-    int32 id = 1;
-    string name = 2;
 
-    repeated int32 asset_ids = 4;
-
-    MarketProductEnergy market_product_energy = 5; // probably won't place the product info here.?
-    int32 market_product_energy_id = 6;
-
-    UtilityTariffEnergy utility_tariff_energy = 9;
-    int32 utility_tariff_energy_id = 10;
-
-    EnergySourceLocal energy_source_local = 12;
-    int32 energy_source_local_id = 13;
-}
 
 message MarketProductEnergy {
     int32 id = 1;
@@ -123,10 +148,16 @@ message UtilityTariffEnergy {
 
 }
 
-message EnergySourceLocal {
+message LocalCustomPrice {
+    //  resource price; internal price; combination price; 
+
     int32 id = 1;
     string name = 2;
 
     IntervalQuantityGroup price = 5;
+
+    // resource_price_energy
+    // resource_price_capacity
+    // resource_price_custom
 
 }
