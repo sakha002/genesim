@@ -12,6 +12,7 @@ _sym_db = _symbol_database.Default()
 
 
 from api import intervals_pb2 as api_dot_intervals__pb2
+from api import service_catalogue_pb2 as api_dot_service__catalogue__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x10\x61pi/assets.proto\x12\x07genesys\x1a\x13\x61pi/intervals.proto\"a\n\x05\x41sset\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x1b\n\x13\x63onnection_point_id\x18\x05 \x01(\x05\x12!\n\x07\x62\x61ttery\x18\t \x01(\x0b\x32\x10.genesys.Battery\"\r\n\x0b\x41ssetEnergy\"\r\n\x0b\x41ssetOutput\"\xcf\x01\n\x07\x42\x61ttery\x12/\n\x0f\x65nergy_property\x18\x05 \x01(\x0b\x32\x16.genesys.BatteryEnergy\x12-\n\x0epower_property\x18\x06 \x01(\x0b\x32\x15.genesys.BatteryPower\x12\x39\n\x14\x64\x65gradation_property\x18\x0b \x01(\x0b\x32\x1b.genesys.BatteryDegradation\x12)\n\x08services\x18\x0c \x03(\x0b\x32\x17.genesys.BatteryService\"\xcd\x06\n\rBatteryEnergy\x12=\n\x0b\x65nergy_loss\x18\x03 \x01(\x0b\x32(.genesys.BatteryEnergy.BatteryEnergyLoss\x12K\n\x0foperation_limit\x18\x04 \x01(\x0b\x32\x32.genesys.BatteryEnergy.BatteryEnergyOperationLimit\x12G\n\rnominal_limit\x18\x05 \x01(\x0b\x32\x30.genesys.BatteryEnergy.BatteryEnergyNominalLimit\x12.\n\x0einitial_energy\x18\x07 \x01(\x0b\x32\x16.genesys.BasicQuantity\x12/\n\x0fterminal_energy\x18\x08 \x01(\x0b\x32\x16.genesys.BasicQuantity\x1a\xb5\x01\n\x19\x42\x61tteryEnergyNominalLimit\x12(\n\x08\x63\x61pacity\x18\x01 \x01(\x0b\x32\x16.genesys.BasicQuantity\x12\x36\n\x16\x64\x65pth_of_discharge_max\x18\x02 \x01(\x0b\x32\x16.genesys.BasicQuantity\x12\x36\n\x16\x64\x65pth_of_discharge_min\x18\x03 \x01(\x0b\x32\x16.genesys.BasicQuantity\x1a\xcf\x01\n\x1b\x42\x61tteryEnergyOperationLimit\x12\x30\n\x08\x63\x61pacity\x18\x01 \x01(\x0b\x32\x1e.genesys.IntervalQuantityGroup\x12>\n\x16\x64\x65pth_of_discharge_max\x18\x02 \x01(\x0b\x32\x1e.genesys.IntervalQuantityGroup\x12>\n\x16\x64\x65pth_of_discharge_min\x18\x03 \x01(\x0b\x32\x1e.genesys.IntervalQuantityGroup\x1a|\n\x11\x42\x61tteryEnergyLoss\x12\x31\n\x11\x63harge_efficiency\x18\x01 \x01(\x0b\x32\x16.genesys.BasicQuantity\x12\x34\n\x14\x64ischarge_efficiency\x18\x02 \x01(\x0b\x32\x16.genesys.BasicQuantity\"\xa1\x03\n\x0c\x42\x61tteryPower\x12I\n\x0foperation_limit\x18\x02 \x01(\x0b\x32\x30.genesys.BatteryPower.BatteryPowerOperationLimit\x12\x45\n\rnominal_limit\x18\x03 \x01(\x0b\x32..genesys.BatteryPower.BatteryPowerNominalLimit\x1a\x87\x01\n\x1a\x42\x61tteryPowerOperationLimit\x12\x32\n\ncharge_max\x18\x02 \x01(\x0b\x32\x1e.genesys.IntervalQuantityGroup\x12\x35\n\rdischarge_max\x18\x03 \x01(\x0b\x32\x1e.genesys.IntervalQuantityGroup\x1au\n\x18\x42\x61tteryPowerNominalLimit\x12*\n\ncharge_max\x18\x02 \x01(\x0b\x32\x16.genesys.BasicQuantity\x12-\n\rdischarge_max\x18\x03 \x01(\x0b\x32\x16.genesys.BasicQuantity\"\xa3\x01\n\x12\x42\x61tteryDegradation\x12\x30\n\x10reduced_capacity\x18\x02 \x01(\x0b\x32\x16.genesys.BasicQuantity\x12,\n\x0c\x63ycling_cost\x18\x04 \x01(\x0b\x32\x16.genesys.BasicQuantity\x12-\n\rcycling_limit\x18\x05 \x01(\x0b\x32\x16.genesys.BasicQuantity\"+\n\x0f\x42\x61tteryInterval\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\"_\n\x0e\x42\x61tteryService\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x33\n\tarbitrage\x18\x04 \x01(\x0b\x32 .genesys.BatteryServiceArbitrage\"\xb3\x01\n\x17\x42\x61tteryServiceArbitrage\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\"\n\x1a\x65nergy_source_economic_ids\x18\x05 \x03(\x05\x12*\n\"cross_market_convergence_arbitrage\x18\x07 \x01(\x08\x12.\n\x06prices\x18\n \x03(\x0b\x32\x1e.genesys.IntervalQuantityGroupb\x06proto3'
+  serialized_pb=b'\n\x10\x61pi/assets.proto\x12\x07genesys\x1a\x13\x61pi/intervals.proto\x1a\x1b\x61pi/service_catalogue.proto\"a\n\x05\x41sset\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x1b\n\x13\x63onnection_point_id\x18\x05 \x01(\x05\x12!\n\x07\x62\x61ttery\x18\t \x01(\x0b\x32\x10.genesys.Battery\"\r\n\x0b\x41ssetEnergy\"\r\n\x0b\x41ssetOutput\"\xcf\x01\n\x07\x42\x61ttery\x12/\n\x0f\x65nergy_property\x18\x05 \x01(\x0b\x32\x16.genesys.BatteryEnergy\x12-\n\x0epower_property\x18\x06 \x01(\x0b\x32\x15.genesys.BatteryPower\x12\x39\n\x14\x64\x65gradation_property\x18\x0b \x01(\x0b\x32\x1b.genesys.BatteryDegradation\x12)\n\x08services\x18\x0c \x03(\x0b\x32\x17.genesys.BatteryService\"\xc2\x07\n\rBatteryEnergy\x12=\n\x0b\x65nergy_loss\x18\x03 \x01(\x0b\x32(.genesys.BatteryEnergy.BatteryEnergyLoss\x12K\n\x0foperation_limit\x18\x04 \x01(\x0b\x32\x32.genesys.BatteryEnergy.BatteryEnergyOperationLimit\x12G\n\rnominal_limit\x18\x05 \x01(\x0b\x32\x30.genesys.BatteryEnergy.BatteryEnergyNominalLimit\x12.\n\x0einitial_energy\x18\x07 \x01(\x0b\x32\x16.genesys.BasicQuantity\x12/\n\x0fterminal_energy\x18\x08 \x01(\x0b\x32\x16.genesys.BasicQuantity\x12\x38\n\x18initial_energy_avrg_cost\x18\x0b \x01(\x0b\x32\x16.genesys.BasicQuantity\x12\x39\n\x19terminal_energy_avrg_cost\x18\x0c \x01(\x0b\x32\x16.genesys.BasicQuantity\x1a\xb5\x01\n\x19\x42\x61tteryEnergyNominalLimit\x12(\n\x08\x63\x61pacity\x18\x01 \x01(\x0b\x32\x16.genesys.BasicQuantity\x12\x36\n\x16\x64\x65pth_of_discharge_max\x18\x02 \x01(\x0b\x32\x16.genesys.BasicQuantity\x12\x36\n\x16\x64\x65pth_of_discharge_min\x18\x03 \x01(\x0b\x32\x16.genesys.BasicQuantity\x1a\xcf\x01\n\x1b\x42\x61tteryEnergyOperationLimit\x12\x30\n\x08\x63\x61pacity\x18\x01 \x01(\x0b\x32\x1e.genesys.IntervalQuantityGroup\x12>\n\x16\x64\x65pth_of_discharge_max\x18\x02 \x01(\x0b\x32\x1e.genesys.IntervalQuantityGroup\x12>\n\x16\x64\x65pth_of_discharge_min\x18\x03 \x01(\x0b\x32\x1e.genesys.IntervalQuantityGroup\x1a|\n\x11\x42\x61tteryEnergyLoss\x12\x31\n\x11\x63harge_efficiency\x18\x01 \x01(\x0b\x32\x16.genesys.BasicQuantity\x12\x34\n\x14\x64ischarge_efficiency\x18\x02 \x01(\x0b\x32\x16.genesys.BasicQuantity\"\xa1\x03\n\x0c\x42\x61tteryPower\x12I\n\x0foperation_limit\x18\x02 \x01(\x0b\x32\x30.genesys.BatteryPower.BatteryPowerOperationLimit\x12\x45\n\rnominal_limit\x18\x03 \x01(\x0b\x32..genesys.BatteryPower.BatteryPowerNominalLimit\x1a\x87\x01\n\x1a\x42\x61tteryPowerOperationLimit\x12\x32\n\ncharge_max\x18\x02 \x01(\x0b\x32\x1e.genesys.IntervalQuantityGroup\x12\x35\n\rdischarge_max\x18\x03 \x01(\x0b\x32\x1e.genesys.IntervalQuantityGroup\x1au\n\x18\x42\x61tteryPowerNominalLimit\x12*\n\ncharge_max\x18\x02 \x01(\x0b\x32\x16.genesys.BasicQuantity\x12-\n\rdischarge_max\x18\x03 \x01(\x0b\x32\x16.genesys.BasicQuantity\"\xa3\x01\n\x12\x42\x61tteryDegradation\x12\x30\n\x10reduced_capacity\x18\x02 \x01(\x0b\x32\x16.genesys.BasicQuantity\x12,\n\x0c\x63ycling_cost\x18\x04 \x01(\x0b\x32\x16.genesys.BasicQuantity\x12-\n\rcycling_limit\x18\x05 \x01(\x0b\x32\x16.genesys.BasicQuantity\"+\n\x0f\x42\x61tteryInterval\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\"_\n\x0e\x42\x61tteryService\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x33\n\tarbitrage\x18\x04 \x01(\x0b\x32 .genesys.BatteryServiceArbitrage\"\xac\x01\n\x17\x42\x61tteryServiceArbitrage\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\"\n\x1a\x65nergy_source_economic_ids\x18\x05 \x03(\x05\x12*\n\"cross_market_convergence_arbitrage\x18\x07 \x01(\x08\x12\'\n\x06prices\x18\n \x03(\x0b\x32\x17.genesys.EconomicsPrice\"\x92\x02\n\x0e\x45\x63onomicsPrice\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x1f\n\x17market_product_price_id\x18\x05 \x01(\x05\x12\x1f\n\x17utility_tariff_price_id\x18\x07 \x01(\x05\x12\x39\n\x14market_product_price\x18\n \x01(\x0b\x32\x1b.genesys.MarketProductPrice\x12\x32\n\x14utility_tariff_price\x18\x0b \x01(\x0b\x32\x14.genesys.TariffPrice\x12\x35\n\x12\x63ustom_local_price\x18\x0c \x01(\x0b\x32\x19.genesys.LocalCustomPrice\"[\n\x10LocalCustomPrice\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12-\n\x05price\x18\x05 \x01(\x0b\x32\x1e.genesys.IntervalQuantityGroupb\x06proto3'
   ,
-  dependencies=[api_dot_intervals__pb2.DESCRIPTOR,])
+  dependencies=[api_dot_intervals__pb2.DESCRIPTOR,api_dot_service__catalogue__pb2.DESCRIPTOR,])
 
 
 
@@ -75,8 +76,8 @@ _ASSET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=50,
-  serialized_end=147,
+  serialized_start=79,
+  serialized_end=176,
 )
 
 
@@ -100,8 +101,8 @@ _ASSETENERGY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=149,
-  serialized_end=162,
+  serialized_start=178,
+  serialized_end=191,
 )
 
 
@@ -125,8 +126,8 @@ _ASSETOUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=164,
-  serialized_end=177,
+  serialized_start=193,
+  serialized_end=206,
 )
 
 
@@ -178,8 +179,8 @@ _BATTERY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=180,
-  serialized_end=387,
+  serialized_start=209,
+  serialized_end=416,
 )
 
 
@@ -224,8 +225,8 @@ _BATTERYENERGY_BATTERYENERGYNOMINALLIMIT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=718,
-  serialized_end=899,
+  serialized_start=864,
+  serialized_end=1045,
 )
 
 _BATTERYENERGY_BATTERYENERGYOPERATIONLIMIT = _descriptor.Descriptor(
@@ -269,8 +270,8 @@ _BATTERYENERGY_BATTERYENERGYOPERATIONLIMIT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=902,
-  serialized_end=1109,
+  serialized_start=1048,
+  serialized_end=1255,
 )
 
 _BATTERYENERGY_BATTERYENERGYLOSS = _descriptor.Descriptor(
@@ -307,8 +308,8 @@ _BATTERYENERGY_BATTERYENERGYLOSS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1111,
-  serialized_end=1235,
+  serialized_start=1257,
+  serialized_end=1381,
 )
 
 _BATTERYENERGY = _descriptor.Descriptor(
@@ -354,6 +355,20 @@ _BATTERYENERGY = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='initial_energy_avrg_cost', full_name='genesys.BatteryEnergy.initial_energy_avrg_cost', index=5,
+      number=11, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='terminal_energy_avrg_cost', full_name='genesys.BatteryEnergy.terminal_energy_avrg_cost', index=6,
+      number=12, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -366,8 +381,8 @@ _BATTERYENERGY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=390,
-  serialized_end=1235,
+  serialized_start=419,
+  serialized_end=1381,
 )
 
 
@@ -405,8 +420,8 @@ _BATTERYPOWER_BATTERYPOWEROPERATIONLIMIT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1401,
-  serialized_end=1536,
+  serialized_start=1547,
+  serialized_end=1682,
 )
 
 _BATTERYPOWER_BATTERYPOWERNOMINALLIMIT = _descriptor.Descriptor(
@@ -443,8 +458,8 @@ _BATTERYPOWER_BATTERYPOWERNOMINALLIMIT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1538,
-  serialized_end=1655,
+  serialized_start=1684,
+  serialized_end=1801,
 )
 
 _BATTERYPOWER = _descriptor.Descriptor(
@@ -481,8 +496,8 @@ _BATTERYPOWER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1238,
-  serialized_end=1655,
+  serialized_start=1384,
+  serialized_end=1801,
 )
 
 
@@ -527,8 +542,8 @@ _BATTERYDEGRADATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1658,
-  serialized_end=1821,
+  serialized_start=1804,
+  serialized_end=1967,
 )
 
 
@@ -566,8 +581,8 @@ _BATTERYINTERVAL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1823,
-  serialized_end=1866,
+  serialized_start=1969,
+  serialized_end=2012,
 )
 
 
@@ -612,8 +627,8 @@ _BATTERYSERVICE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1868,
-  serialized_end=1963,
+  serialized_start=2014,
+  serialized_end=2109,
 )
 
 
@@ -672,8 +687,128 @@ _BATTERYSERVICEARBITRAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1966,
-  serialized_end=2145,
+  serialized_start=2112,
+  serialized_end=2284,
+)
+
+
+_ECONOMICSPRICE = _descriptor.Descriptor(
+  name='EconomicsPrice',
+  full_name='genesys.EconomicsPrice',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.EconomicsPrice.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.EconomicsPrice.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='market_product_price_id', full_name='genesys.EconomicsPrice.market_product_price_id', index=2,
+      number=5, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='utility_tariff_price_id', full_name='genesys.EconomicsPrice.utility_tariff_price_id', index=3,
+      number=7, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='market_product_price', full_name='genesys.EconomicsPrice.market_product_price', index=4,
+      number=10, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='utility_tariff_price', full_name='genesys.EconomicsPrice.utility_tariff_price', index=5,
+      number=11, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='custom_local_price', full_name='genesys.EconomicsPrice.custom_local_price', index=6,
+      number=12, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2287,
+  serialized_end=2561,
+)
+
+
+_LOCALCUSTOMPRICE = _descriptor.Descriptor(
+  name='LocalCustomPrice',
+  full_name='genesys.LocalCustomPrice',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.LocalCustomPrice.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.LocalCustomPrice.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='price', full_name='genesys.LocalCustomPrice.price', index=2,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2563,
+  serialized_end=2654,
 )
 
 _ASSET.fields_by_name['battery'].message_type = _BATTERY
@@ -697,6 +832,8 @@ _BATTERYENERGY.fields_by_name['operation_limit'].message_type = _BATTERYENERGY_B
 _BATTERYENERGY.fields_by_name['nominal_limit'].message_type = _BATTERYENERGY_BATTERYENERGYNOMINALLIMIT
 _BATTERYENERGY.fields_by_name['initial_energy'].message_type = api_dot_intervals__pb2._BASICQUANTITY
 _BATTERYENERGY.fields_by_name['terminal_energy'].message_type = api_dot_intervals__pb2._BASICQUANTITY
+_BATTERYENERGY.fields_by_name['initial_energy_avrg_cost'].message_type = api_dot_intervals__pb2._BASICQUANTITY
+_BATTERYENERGY.fields_by_name['terminal_energy_avrg_cost'].message_type = api_dot_intervals__pb2._BASICQUANTITY
 _BATTERYPOWER_BATTERYPOWEROPERATIONLIMIT.fields_by_name['charge_max'].message_type = api_dot_intervals__pb2._INTERVALQUANTITYGROUP
 _BATTERYPOWER_BATTERYPOWEROPERATIONLIMIT.fields_by_name['discharge_max'].message_type = api_dot_intervals__pb2._INTERVALQUANTITYGROUP
 _BATTERYPOWER_BATTERYPOWEROPERATIONLIMIT.containing_type = _BATTERYPOWER
@@ -709,7 +846,11 @@ _BATTERYDEGRADATION.fields_by_name['reduced_capacity'].message_type = api_dot_in
 _BATTERYDEGRADATION.fields_by_name['cycling_cost'].message_type = api_dot_intervals__pb2._BASICQUANTITY
 _BATTERYDEGRADATION.fields_by_name['cycling_limit'].message_type = api_dot_intervals__pb2._BASICQUANTITY
 _BATTERYSERVICE.fields_by_name['arbitrage'].message_type = _BATTERYSERVICEARBITRAGE
-_BATTERYSERVICEARBITRAGE.fields_by_name['prices'].message_type = api_dot_intervals__pb2._INTERVALQUANTITYGROUP
+_BATTERYSERVICEARBITRAGE.fields_by_name['prices'].message_type = _ECONOMICSPRICE
+_ECONOMICSPRICE.fields_by_name['market_product_price'].message_type = api_dot_service__catalogue__pb2._MARKETPRODUCTPRICE
+_ECONOMICSPRICE.fields_by_name['utility_tariff_price'].message_type = api_dot_service__catalogue__pb2._TARIFFPRICE
+_ECONOMICSPRICE.fields_by_name['custom_local_price'].message_type = _LOCALCUSTOMPRICE
+_LOCALCUSTOMPRICE.fields_by_name['price'].message_type = api_dot_intervals__pb2._INTERVALQUANTITYGROUP
 DESCRIPTOR.message_types_by_name['Asset'] = _ASSET
 DESCRIPTOR.message_types_by_name['AssetEnergy'] = _ASSETENERGY
 DESCRIPTOR.message_types_by_name['AssetOutput'] = _ASSETOUTPUT
@@ -720,6 +861,8 @@ DESCRIPTOR.message_types_by_name['BatteryDegradation'] = _BATTERYDEGRADATION
 DESCRIPTOR.message_types_by_name['BatteryInterval'] = _BATTERYINTERVAL
 DESCRIPTOR.message_types_by_name['BatteryService'] = _BATTERYSERVICE
 DESCRIPTOR.message_types_by_name['BatteryServiceArbitrage'] = _BATTERYSERVICEARBITRAGE
+DESCRIPTOR.message_types_by_name['EconomicsPrice'] = _ECONOMICSPRICE
+DESCRIPTOR.message_types_by_name['LocalCustomPrice'] = _LOCALCUSTOMPRICE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Asset = _reflection.GeneratedProtocolMessageType('Asset', (_message.Message,), {
@@ -831,6 +974,20 @@ BatteryServiceArbitrage = _reflection.GeneratedProtocolMessageType('BatteryServi
   # @@protoc_insertion_point(class_scope:genesys.BatteryServiceArbitrage)
   })
 _sym_db.RegisterMessage(BatteryServiceArbitrage)
+
+EconomicsPrice = _reflection.GeneratedProtocolMessageType('EconomicsPrice', (_message.Message,), {
+  'DESCRIPTOR' : _ECONOMICSPRICE,
+  '__module__' : 'api.assets_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.EconomicsPrice)
+  })
+_sym_db.RegisterMessage(EconomicsPrice)
+
+LocalCustomPrice = _reflection.GeneratedProtocolMessageType('LocalCustomPrice', (_message.Message,), {
+  'DESCRIPTOR' : _LOCALCUSTOMPRICE,
+  '__module__' : 'api.assets_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.LocalCustomPrice)
+  })
+_sym_db.RegisterMessage(LocalCustomPrice)
 
 
 # @@protoc_insertion_point(module_scope)

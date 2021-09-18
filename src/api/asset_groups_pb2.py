@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x16\x61pi/asset_groups.proto\x12\x07genesys\x1a\x13\x61pi/intervals.proto\x1a\x10\x61pi/assets.proto\"\xb9\x02\n\nAssetGroup\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12%\n\x04type\x18\x04 \x01(\x0e\x32\x17.genesys.AssetGroupType\x12\x1e\n\x06\x61ssets\x18\x05 \x03(\x0b\x32\x0e.genesys.Asset\x12\x11\n\tasset_ids\x18\x06 \x03(\x05\x12>\n\x17\x65nergy_source_economics\x18\t \x03(\x0b\x32\x1d.genesys.EnergySourceEconomic\x12\x39\n\x14\x61sset_group_economic\x18\x0c \x01(\x0b\x32\x1b.genesys.AssetGroupEconomic\x12<\n\x10operation_limits\x18\x0f \x01(\x0b\x32\".genesys.AssetGroupOperationLimits\"5\n\x19\x41ssetGroupOperationLimits\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\".\n\x12\x41ssetGroupEconomic\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\"\xda\x02\n\x14\x45nergySourceEconomic\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\tasset_ids\x18\x04 \x03(\x05\x12;\n\x15market_product_energy\x18\x05 \x01(\x0b\x32\x1c.genesys.MarketProductEnergy\x12 \n\x18market_product_energy_id\x18\x06 \x01(\x05\x12;\n\x15utility_tariff_energy\x18\t \x01(\x0b\x32\x1c.genesys.UtilityTariffEnergy\x12 \n\x18utility_tariff_energy_id\x18\n \x01(\x05\x12\x37\n\x13\x65nergy_source_local\x18\x0c \x01(\x0b\x32\x1a.genesys.EnergySourceLocal\x12\x1e\n\x16\x65nergy_source_local_id\x18\r \x01(\x05\"^\n\x13MarketProductEnergy\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12-\n\x05price\x18\x05 \x01(\x0b\x32\x1e.genesys.IntervalQuantityGroup\"/\n\x13UtilityTariffEnergy\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\"-\n\x11\x45nergySourceLocal\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t*-\n\x0e\x41ssetGroupType\x12\x0c\n\x08PHYSICAL\x10\x00\x12\r\n\tFINANCIAL\x10\x01\x62\x06proto3'
+  serialized_pb=b'\n\x16\x61pi/asset_groups.proto\x12\x07genesys\x1a\x13\x61pi/intervals.proto\x1a\x10\x61pi/assets.proto\"\xae\x02\n\nAssetGroup\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12%\n\x04type\x18\x04 \x01(\x0e\x32\x17.genesys.AssetGroupType\x12\x1e\n\x06\x61ssets\x18\x05 \x03(\x0b\x32\x0e.genesys.Asset\x12\x11\n\tasset_ids\x18\x06 \x03(\x05\x12\x35\n\x12resource_economics\x18\t \x03(\x0b\x32\x19.genesys.ResourceEconomic\x12\x39\n\x14\x61sset_group_economic\x18\x0c \x01(\x0b\x32\x1b.genesys.AssetGroupEconomic\x12:\n\x0foperation_limit\x18\x0f \x01(\x0b\x32!.genesys.AssetGroupOperationLimit\"\x8e\x02\n\x18\x41ssetGroupOperationLimit\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x38\n\x10import_max_power\x18\x05 \x01(\x0b\x32\x1e.genesys.IntervalQuantityGroup\x12\x38\n\x10\x65xport_max_power\x18\x06 \x01(\x0b\x32\x1e.genesys.IntervalQuantityGroup\x12\x31\n\x11import_max_energy\x18\t \x01(\x0b\x32\x16.genesys.BasicQuantity\x12\x31\n\x11\x65xport_max_energy\x18\n \x01(\x0b\x32\x16.genesys.BasicQuantity\"~\n\x12\x41ssetGroupEconomic\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x31\n\x10\x65\x63onomics_prices\x18\x05 \x03(\x0b\x32\x17.genesys.EconomicsPrice\x12\x1b\n\x13\x65\x63onomics_price_ids\x18\x06 \x03(\x05\"\x8d\x01\n\x10ResourceEconomic\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\tasset_ids\x18\x04 \x03(\x05\x12\x30\n\x0f\x65\x63onomics_price\x18\x05 \x03(\x0b\x32\x17.genesys.EconomicsPrice\x12\x1a\n\x12\x65\x63onomics_price_id\x18\x06 \x03(\x05*-\n\x0e\x41ssetGroupType\x12\x0c\n\x08PHYSICAL\x10\x00\x12\r\n\tFINANCIAL\x10\x01\x62\x06proto3'
   ,
   dependencies=[api_dot_intervals__pb2.DESCRIPTOR,api_dot_assets__pb2.DESCRIPTOR,])
 
@@ -46,8 +46,8 @@ _ASSETGROUPTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1034,
-  serialized_end=1079,
+  serialized_start=924,
+  serialized_end=969,
 )
 _sym_db.RegisterEnumDescriptor(_ASSETGROUPTYPE)
 
@@ -101,7 +101,7 @@ _ASSETGROUP = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='energy_source_economics', full_name='genesys.AssetGroup.energy_source_economics', index=5,
+      name='resource_economics', full_name='genesys.AssetGroup.resource_economics', index=5,
       number=9, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -115,7 +115,7 @@ _ASSETGROUP = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='operation_limits', full_name='genesys.AssetGroup.operation_limits', index=7,
+      name='operation_limit', full_name='genesys.AssetGroup.operation_limit', index=7,
       number=15, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -134,29 +134,57 @@ _ASSETGROUP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=75,
-  serialized_end=388,
+  serialized_end=377,
 )
 
 
-_ASSETGROUPOPERATIONLIMITS = _descriptor.Descriptor(
-  name='AssetGroupOperationLimits',
-  full_name='genesys.AssetGroupOperationLimits',
+_ASSETGROUPOPERATIONLIMIT = _descriptor.Descriptor(
+  name='AssetGroupOperationLimit',
+  full_name='genesys.AssetGroupOperationLimit',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='genesys.AssetGroupOperationLimits.id', index=0,
+      name='id', full_name='genesys.AssetGroupOperationLimit.id', index=0,
       number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='name', full_name='genesys.AssetGroupOperationLimits.name', index=1,
+      name='name', full_name='genesys.AssetGroupOperationLimit.name', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='import_max_power', full_name='genesys.AssetGroupOperationLimit.import_max_power', index=2,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='export_max_power', full_name='genesys.AssetGroupOperationLimit.export_max_power', index=3,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='import_max_energy', full_name='genesys.AssetGroupOperationLimit.import_max_energy', index=4,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='export_max_energy', full_name='genesys.AssetGroupOperationLimit.export_max_energy', index=5,
+      number=10, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -172,8 +200,8 @@ _ASSETGROUPOPERATIONLIMITS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=390,
-  serialized_end=443,
+  serialized_start=380,
+  serialized_end=650,
 )
 
 
@@ -199,6 +227,20 @@ _ASSETGROUPECONOMIC = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='economics_prices', full_name='genesys.AssetGroupEconomic.economics_prices', index=2,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='economics_price_ids', full_name='genesys.AssetGroupEconomic.economics_price_ids', index=3,
+      number=6, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -211,79 +253,51 @@ _ASSETGROUPECONOMIC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=445,
-  serialized_end=491,
+  serialized_start=652,
+  serialized_end=778,
 )
 
 
-_ENERGYSOURCEECONOMIC = _descriptor.Descriptor(
-  name='EnergySourceEconomic',
-  full_name='genesys.EnergySourceEconomic',
+_RESOURCEECONOMIC = _descriptor.Descriptor(
+  name='ResourceEconomic',
+  full_name='genesys.ResourceEconomic',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='genesys.EnergySourceEconomic.id', index=0,
+      name='id', full_name='genesys.ResourceEconomic.id', index=0,
       number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='name', full_name='genesys.EnergySourceEconomic.name', index=1,
+      name='name', full_name='genesys.ResourceEconomic.name', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='asset_ids', full_name='genesys.EnergySourceEconomic.asset_ids', index=2,
+      name='asset_ids', full_name='genesys.ResourceEconomic.asset_ids', index=2,
       number=4, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='market_product_energy', full_name='genesys.EnergySourceEconomic.market_product_energy', index=3,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='economics_price', full_name='genesys.ResourceEconomic.economics_price', index=3,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='market_product_energy_id', full_name='genesys.EnergySourceEconomic.market_product_energy_id', index=4,
-      number=6, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='utility_tariff_energy', full_name='genesys.EnergySourceEconomic.utility_tariff_energy', index=5,
-      number=9, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='utility_tariff_energy_id', full_name='genesys.EnergySourceEconomic.utility_tariff_energy_id', index=6,
-      number=10, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='energy_source_local', full_name='genesys.EnergySourceEconomic.energy_source_local', index=7,
-      number=12, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='energy_source_local_id', full_name='genesys.EnergySourceEconomic.energy_source_local_id', index=8,
-      number=13, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='economics_price_id', full_name='genesys.ResourceEconomic.economics_price_id', index=4,
+      number=6, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -299,150 +313,25 @@ _ENERGYSOURCEECONOMIC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=494,
-  serialized_end=840,
-)
-
-
-_MARKETPRODUCTENERGY = _descriptor.Descriptor(
-  name='MarketProductEnergy',
-  full_name='genesys.MarketProductEnergy',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='genesys.MarketProductEnergy.id', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='name', full_name='genesys.MarketProductEnergy.name', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='price', full_name='genesys.MarketProductEnergy.price', index=2,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=842,
-  serialized_end=936,
-)
-
-
-_UTILITYTARIFFENERGY = _descriptor.Descriptor(
-  name='UtilityTariffEnergy',
-  full_name='genesys.UtilityTariffEnergy',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='genesys.UtilityTariffEnergy.id', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='name', full_name='genesys.UtilityTariffEnergy.name', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=938,
-  serialized_end=985,
-)
-
-
-_ENERGYSOURCELOCAL = _descriptor.Descriptor(
-  name='EnergySourceLocal',
-  full_name='genesys.EnergySourceLocal',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='genesys.EnergySourceLocal.id', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='name', full_name='genesys.EnergySourceLocal.name', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=987,
-  serialized_end=1032,
+  serialized_start=781,
+  serialized_end=922,
 )
 
 _ASSETGROUP.fields_by_name['type'].enum_type = _ASSETGROUPTYPE
 _ASSETGROUP.fields_by_name['assets'].message_type = api_dot_assets__pb2._ASSET
-_ASSETGROUP.fields_by_name['energy_source_economics'].message_type = _ENERGYSOURCEECONOMIC
+_ASSETGROUP.fields_by_name['resource_economics'].message_type = _RESOURCEECONOMIC
 _ASSETGROUP.fields_by_name['asset_group_economic'].message_type = _ASSETGROUPECONOMIC
-_ASSETGROUP.fields_by_name['operation_limits'].message_type = _ASSETGROUPOPERATIONLIMITS
-_ENERGYSOURCEECONOMIC.fields_by_name['market_product_energy'].message_type = _MARKETPRODUCTENERGY
-_ENERGYSOURCEECONOMIC.fields_by_name['utility_tariff_energy'].message_type = _UTILITYTARIFFENERGY
-_ENERGYSOURCEECONOMIC.fields_by_name['energy_source_local'].message_type = _ENERGYSOURCELOCAL
-_MARKETPRODUCTENERGY.fields_by_name['price'].message_type = api_dot_intervals__pb2._INTERVALQUANTITYGROUP
+_ASSETGROUP.fields_by_name['operation_limit'].message_type = _ASSETGROUPOPERATIONLIMIT
+_ASSETGROUPOPERATIONLIMIT.fields_by_name['import_max_power'].message_type = api_dot_intervals__pb2._INTERVALQUANTITYGROUP
+_ASSETGROUPOPERATIONLIMIT.fields_by_name['export_max_power'].message_type = api_dot_intervals__pb2._INTERVALQUANTITYGROUP
+_ASSETGROUPOPERATIONLIMIT.fields_by_name['import_max_energy'].message_type = api_dot_intervals__pb2._BASICQUANTITY
+_ASSETGROUPOPERATIONLIMIT.fields_by_name['export_max_energy'].message_type = api_dot_intervals__pb2._BASICQUANTITY
+_ASSETGROUPECONOMIC.fields_by_name['economics_prices'].message_type = api_dot_assets__pb2._ECONOMICSPRICE
+_RESOURCEECONOMIC.fields_by_name['economics_price'].message_type = api_dot_assets__pb2._ECONOMICSPRICE
 DESCRIPTOR.message_types_by_name['AssetGroup'] = _ASSETGROUP
-DESCRIPTOR.message_types_by_name['AssetGroupOperationLimits'] = _ASSETGROUPOPERATIONLIMITS
+DESCRIPTOR.message_types_by_name['AssetGroupOperationLimit'] = _ASSETGROUPOPERATIONLIMIT
 DESCRIPTOR.message_types_by_name['AssetGroupEconomic'] = _ASSETGROUPECONOMIC
-DESCRIPTOR.message_types_by_name['EnergySourceEconomic'] = _ENERGYSOURCEECONOMIC
-DESCRIPTOR.message_types_by_name['MarketProductEnergy'] = _MARKETPRODUCTENERGY
-DESCRIPTOR.message_types_by_name['UtilityTariffEnergy'] = _UTILITYTARIFFENERGY
-DESCRIPTOR.message_types_by_name['EnergySourceLocal'] = _ENERGYSOURCELOCAL
+DESCRIPTOR.message_types_by_name['ResourceEconomic'] = _RESOURCEECONOMIC
 DESCRIPTOR.enum_types_by_name['AssetGroupType'] = _ASSETGROUPTYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -453,12 +342,12 @@ AssetGroup = _reflection.GeneratedProtocolMessageType('AssetGroup', (_message.Me
   })
 _sym_db.RegisterMessage(AssetGroup)
 
-AssetGroupOperationLimits = _reflection.GeneratedProtocolMessageType('AssetGroupOperationLimits', (_message.Message,), {
-  'DESCRIPTOR' : _ASSETGROUPOPERATIONLIMITS,
+AssetGroupOperationLimit = _reflection.GeneratedProtocolMessageType('AssetGroupOperationLimit', (_message.Message,), {
+  'DESCRIPTOR' : _ASSETGROUPOPERATIONLIMIT,
   '__module__' : 'api.asset_groups_pb2'
-  # @@protoc_insertion_point(class_scope:genesys.AssetGroupOperationLimits)
+  # @@protoc_insertion_point(class_scope:genesys.AssetGroupOperationLimit)
   })
-_sym_db.RegisterMessage(AssetGroupOperationLimits)
+_sym_db.RegisterMessage(AssetGroupOperationLimit)
 
 AssetGroupEconomic = _reflection.GeneratedProtocolMessageType('AssetGroupEconomic', (_message.Message,), {
   'DESCRIPTOR' : _ASSETGROUPECONOMIC,
@@ -467,33 +356,12 @@ AssetGroupEconomic = _reflection.GeneratedProtocolMessageType('AssetGroupEconomi
   })
 _sym_db.RegisterMessage(AssetGroupEconomic)
 
-EnergySourceEconomic = _reflection.GeneratedProtocolMessageType('EnergySourceEconomic', (_message.Message,), {
-  'DESCRIPTOR' : _ENERGYSOURCEECONOMIC,
+ResourceEconomic = _reflection.GeneratedProtocolMessageType('ResourceEconomic', (_message.Message,), {
+  'DESCRIPTOR' : _RESOURCEECONOMIC,
   '__module__' : 'api.asset_groups_pb2'
-  # @@protoc_insertion_point(class_scope:genesys.EnergySourceEconomic)
+  # @@protoc_insertion_point(class_scope:genesys.ResourceEconomic)
   })
-_sym_db.RegisterMessage(EnergySourceEconomic)
-
-MarketProductEnergy = _reflection.GeneratedProtocolMessageType('MarketProductEnergy', (_message.Message,), {
-  'DESCRIPTOR' : _MARKETPRODUCTENERGY,
-  '__module__' : 'api.asset_groups_pb2'
-  # @@protoc_insertion_point(class_scope:genesys.MarketProductEnergy)
-  })
-_sym_db.RegisterMessage(MarketProductEnergy)
-
-UtilityTariffEnergy = _reflection.GeneratedProtocolMessageType('UtilityTariffEnergy', (_message.Message,), {
-  'DESCRIPTOR' : _UTILITYTARIFFENERGY,
-  '__module__' : 'api.asset_groups_pb2'
-  # @@protoc_insertion_point(class_scope:genesys.UtilityTariffEnergy)
-  })
-_sym_db.RegisterMessage(UtilityTariffEnergy)
-
-EnergySourceLocal = _reflection.GeneratedProtocolMessageType('EnergySourceLocal', (_message.Message,), {
-  'DESCRIPTOR' : _ENERGYSOURCELOCAL,
-  '__module__' : 'api.asset_groups_pb2'
-  # @@protoc_insertion_point(class_scope:genesys.EnergySourceLocal)
-  })
-_sym_db.RegisterMessage(EnergySourceLocal)
+_sym_db.RegisterMessage(ResourceEconomic)
 
 
 # @@protoc_insertion_point(module_scope)

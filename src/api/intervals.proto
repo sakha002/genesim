@@ -12,13 +12,10 @@ message BaseInterval {
   // if we have a group of intervals we probably won't use both begin and end to mark them; still we place it here. 
   // int32 id =  1;
   // string name = 2;
-
   google.protobuf.Duration duration = 4;
   google.protobuf.Timestamp interval_end = 3;
   // google.protobuf.Timestamp interval_begin = 5;
 }
-
-
 
 message Interval{
   // okay so my goal is to have this span somewhat comprehensive, so that it would be used often
@@ -27,14 +24,11 @@ message Interval{
   // support a few different ways to define/reference to a time-span.
   int32 id = 1;
   string name = 2;
-
   google.protobuf.Duration duration = 4;
   google.protobuf.Timestamp interval_end = 3;
   google.protobuf.Timestamp interval_begin = 5;
-
   BaseInterval base_interval = 10; // this is used when defining a long time span that we wish to break in smaller resolution; e.g. simulation-horizon
 }
-
 
 message IntervalGroup{
   //  should be sought if it is needed or covered by horizon
@@ -42,9 +36,7 @@ message IntervalGroup{
   string name = 2;
   google.protobuf.Duration duration = 4; // for same duration intervals 
   repeated Interval intervals = 3;
-
   repeated BaseInterval base_intervals = 6; // this won't be provided by the user mostly; should we still keept it here?
-
 }
 
 // message Horizon{
@@ -58,11 +50,9 @@ message IntervalGroup{
 //   repeated int32 interval_ids = 10;
 // }
 
-
 message Quantity{
   int32 id = 1;
   string name = 2;
-
   string unit = 5;
   double value = 6;
   Interval interval = 10;
@@ -71,7 +61,6 @@ message Quantity{
 message QuantityGroup {
   int32 id = 1;
   string name = 2;
-
   string unit = 5;
   repeated Quantity quantitys = 10;
 }
@@ -79,7 +68,6 @@ message QuantityGroup {
 message IntervalQuantity{
   int32 id = 1;
   string name = 2;
-
   Interval interval = 6;
   BasicQuantity quantity = 7;
 }
@@ -89,29 +77,23 @@ message IntervalQuantity{
 //  well the need to have a BaseInterval which is the model resolution, is kind of affecting the defenitions
 //  the Interval and BaseInterval are the same thing.
 
-
 message BasicQuantity{
   int32 id = 1;
   string name = 2;
-
   string unit = 5;
   double value = 10;
 }
 
-
 message BasicQuantityGroup{
   int32 id = 1;
   string name = 2;
-
   string unit = 5;
   repeated BasicQuantity quantitys = 10;
 }
 
-
 message IntervalQuantityGroup{
   int32 id = 1;
   string name = 2;
-
   string unit = 5;
   repeated IntervalQuantity interval_quantitys = 10;
 }

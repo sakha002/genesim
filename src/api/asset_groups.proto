@@ -4,26 +4,20 @@ package genesys;
 import "api/intervals.proto";
 import "api/assets.proto";
 
-
 message AssetGroup {
     int32 id = 1;
     string name = 2;
-
     AssetGroupType type = 4;
     repeated Asset assets = 5;
     repeated int32 asset_ids = 6; // would we need this? many to many?
-
-    repeated EnergySourceEconomic energy_source_economics = 9;
+    repeated ResourceEconomic resource_economics = 9;
     // so the assignment of the asset-group energy-source economics to the assets is many to many
     //  but at the same time one asset could be part of multiple asset-groups and energy-source-economics.
     //  so the ids of these energy-source-economics should be unique; eventhough belong/placed under different asset-groups
     // the number of energy-source-economics and assets are not one to one, some assets may have multiple ESE, 
     // and some ESEs may be linked to multiple assets
-
     AssetGroupEconomic asset_group_economic = 12;
-
-    AssetGroupOperationLimits operation_limits = 15;
-
+    AssetGroupOperationLimit operation_limit = 15;
 }
 
 enum AssetGroupType {
@@ -31,133 +25,34 @@ enum AssetGroupType {
     FINANCIAL = 1;
 }
 
-message AssetGroupOperationLimits {
+message AssetGroupOperationLimit {
     int32 id = 1;
     string name = 2;
-
     IntervalQuantityGroup import_max_power = 5;
     IntervalQuantityGroup export_max_power = 6;
-
     BasicQuantity import_max_energy = 9;
     BasicQuantity export_max_energy = 10;
     //  the actual operational limits needed for different kinds of asset groups and suited types is TBD.
-
 }
 
 message AssetGroupEconomic {
-
     //  this would be all the Economics of this asset-group as a whole;;
     //  different markets, products, venues, and BTM/FOM revenues.
     //  would have some repeated fields under here instead of the parent.
     int32 id = 1;
     string name = 2;
-
-    MarketProduct market_product = 5;
-    UtilityTariff utility_tariff = 6;
-    LocalCustomPrice local_custom_price =7;
-
-    int32 market_product_price_id = 9;
-    int32 utility_tariff_price_id = 10;
-    int32 local_custom_price_id = 11;
+    repeated EconomicsPrice economics_prices = 5; 
+    repeated int32 economics_price_ids = 6;
 
     // eligible products/active products
 }
 
-message EnergySourceEconomic{
+message ResourceEconomic{
     //  this is related to economic source, the asset can only have one electric source (connection point)
     //  should economics of these products be under separate tree?
     int32 id = 1;
     string name = 2;
-
     repeated int32 asset_ids = 4;
-    MarketProductEnergy market_product = 5; // probably won't place the product info here.?
-    int32 market_product_id = 6;
-
-    UtilityTariffEnergy utility_tariff = 9;
-    int32 utility_tariff_id = 10;
-
-    LocalCustomPrice source_local = 12;
-    int32 energy_source_local_id = 13;
-
-}
-
-/////////////////////////////////
-message Price{
-    int32 id = 1;
-    string name = 2;
-
-    PriceMarketProduct market_product_price = 5;
-    PriceUtilityTariff utility_tariff_price = 6;
-    PriceLocalCustom   custom_local_price = 7;
-
-
-}
-
-
-
-
-
-
-message MarketProduct {
-    int32 id = 1;
-    string name = 2;
-
-    MarketProductEnergy energy_product = 5;
-    MarketProductCapacity capacity_product = 6; 
-
-    MarketSettlementPoint market_settlement_point = 9;
-}
-
-message MarketSettlementPoint {
-    int32 id = 1;
-    string name = 2;
-
-    int32 market_id = 5;
-    int32 settlmemnt_point_id = 6;
-    // TBD
-}
-
-message UtilityTariff {
-    int32 id = 1;
-    string name = 2;
-}
-
-
-
-message MarketProductEnergy {
-    int32 id = 1;
-    string name = 2;
-
-    IntervalQuantityGroup price = 5;
-    // TBD
-
-}
-
-message MarketProductCapacity {
-    int32 id = 1;
-    string name = 2;
-
-    IntervalQuantityGroup price = 5;
-    //  TBD
-
-}
-
-message UtilityTariffEnergy {
-    int32 id = 1;
-    string name = 2;
-
-}
-
-message LocalCustomPrice {
-    //  resource price; internal price; combination price; 
-
-    int32 id = 1;
-    string name = 2;
-
-    IntervalQuantityGroup price = 5;
-
-    // resource_price_energy
-    // resource_price_capacity
-    // resource_price_custom
-
+    repeated EconomicsPrice economics_price = 5;   // should this be repeated or not???
+    repeated int32 economics_price_id = 6;
 }
