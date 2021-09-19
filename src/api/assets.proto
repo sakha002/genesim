@@ -13,7 +13,6 @@ message Asset {
     Battery battery = 9 ;
 }
 
-
 message AssetEnergy {
 // do we need this ? differentiate based on tech here?
 // e.g. BatteryEnegry, ..
@@ -29,6 +28,7 @@ message Battery {
     // BatteryInterval battery_interval = 9;
     BatteryDegradation degradation_property = 11;
     repeated BatteryService services = 12;
+    repeated BatteryExpense expenses = 13;
 }
 
 message BatteryEnergy {
@@ -74,9 +74,15 @@ message BatteryPower {
         BasicQuantity charge_max = 2;
         BasicQuantity discharge_max = 3;
     }
+
+    message BatteryRamp {
+        BasicQuantity ramp_up_max = 1;
+        BasicQuantity ramp_down_max = 3;
+    }
     
     BatteryPowerOperationLimit operation_limit = 2;
     BatteryPowerNominalLimit nominal_limit = 3;
+    BatteryRamp power_ramp_limit = 5;
 }
 
 message BatteryDegradation {
@@ -88,6 +94,12 @@ message BatteryDegradation {
 message BatteryInterval {
     int32 id = 1;
     string name = 2;
+}
+
+message BatteryExpense {
+    int32 id = 1;
+    string name = 2;
+
 }
 
 message BatteryService {
@@ -105,7 +117,7 @@ message BatteryService {
 message BatteryServiceArbitrage {
     int32 id = 1;
     string name = 2;
-    repeated int32 energy_source_economic_ids = 5;
+    repeated int32 resource_economic_ids = 5;
     bool cross_market_convergence_arbitrage = 7; // default would be false
     repeated EconomicsPrice prices = 10;  
     // these prices probably won't be provided by the user, but could be received from the energy-sources
