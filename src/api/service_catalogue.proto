@@ -1,0 +1,140 @@
+syntax = "proto3";
+package genesys;
+
+import "api/intervals.proto";
+
+
+message ServiceCatalogue {
+    repeated MarketPlace market_places = 1;
+}
+
+message MarketPlace {
+    //  a market_place (e.g. ERCOT, CAISO) can be of different types
+    //  based on the type (either a Utility; 
+    //  Electric spot market, etc.) some of the features will be valid
+    int32 id = 1;
+    string name = 2;
+    MarketPlaceType type = 5; 
+    repeated Market markets = 7;
+    repeated SettlementPoint settlement_points = 9;
+    repeated TariffGroup tariff_groups = 11;
+}
+
+enum MarketPlaceType {
+    ELECTRIC_SPOT  = 0;
+    GAS_SPOT =1;
+    ELECTRIC_UTILITY =2;
+    ELECTRIC_CONTRACT =3;
+}
+
+message Market {
+    int32 id = 1;
+    string name = 2;
+    repeated MarketProduct market_products = 5;
+}
+
+message TariffGroup {
+    int32 id = 1;
+    string name = 2;
+    repeated Tariff tariffs = 5;
+}
+
+message SettlementPoint {
+    enum SettlementPointType {
+        HUB = 0;
+        NODE = 1;
+    }
+
+    int32 id = 1;
+    string name = 2;
+    SettlementPointType type = 3;
+    repeated int32 product_ids = 4;
+}
+
+//   now the main question comes here; where to put the many nodal prices of a market product?
+//  should it be under market all kind of products and their prices ? 
+//  seems it would make a long list, or  just to have the categorical features here.
+//  okay so if one is keeping all the price objects (MarketProductPrice) under a different category 
+//  then how they would make use of this catalogue? 
+// should we place MarketProductPrice under MarketProduct? 
+message MarketProduct {
+    int32 id = 1;
+    string name = 2;
+    repeated MarketProductPrice product_prices = 5; // prices at different nodes.
+    MarketProductEnergy product_energy = 7;
+    MarketProductCapacity product_capacity = 9;
+}
+
+message MarketProductEnergy {
+    int32 id = 1;
+    string name = 2;
+    BasicQuantity price_cap = 5;
+    BasicQuantity price_floor = 7;
+}
+
+message MarketProductCapacity {
+    int32 id = 1;
+    string name = 2;
+    ProductCapacityType type = 3;
+    BasicQuantity price_cap = 5;
+    BasicQuantity price_floor = 7;
+    //  call chance; average throuput, etc.
+}
+
+enum ProductCapacityType {
+    REG_UP = 0;
+    REG_DOWN = 1;
+    RESERVE = 2;
+    AFRR = 3;
+    FCR = 4;
+}
+
+//  so the goal here is to have this market_product_price object to be able to represent
+//  the price related features of a generalized market product; (same thing for the tarrifprice)
+//  would that prove possible or not ...?
+//  if not then we may introduce MarketProductPriceSomeTH ??
+message MarketProductPrice {
+    int32 id = 1;
+    string name = 2;
+    int32 settlement_point_id = 5; 
+    IntervalQuantityGroup price_values = 10;  
+}
+
+message Tariff {
+    int32 id = 1;
+    string name = 2;
+    TariffPeak peak_demand = 5;
+    TariffTOU tou = 7;
+    TariffTiered tiered_energy = 9;
+    TariffNEM net_energy_metering = 11;
+    repeated TariffPrice tariff_prices = 13;  // in case the tariff has multiple tariff price objects
+    // but really what would be the case for that?
+    //  how can I shape this tarrif data structure to conform to the product framework
+    //  group and list tarrif prices based on ...
+}
+
+message TariffPeak {
+    int32 id = 1;
+    string name = 2;
+}
+
+message TariffTOU {
+    int32 id = 1;
+    string name = 2;
+}
+
+message TariffTiered {
+    int32 id = 1;
+    string name = 2;
+}
+
+message TariffNEM {
+    int32 id = 1;
+    string name = 2;
+}
+
+message TariffPrice {
+    int32 id = 1;
+    string name = 2;
+    IntervalQuantityGroup price_values = 10;  
+}
