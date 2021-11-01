@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0fintervals.proto\x12\x07genesys\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\"m\n\x0c\x42\x61seInterval\x12+\n\x08\x64uration\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x30\n\x0cinterval_end\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xe5\x01\n\x08Interval\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12+\n\x08\x64uration\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x30\n\x0cinterval_end\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x32\n\x0einterval_begin\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\rbase_interval\x18\n \x01(\x0b\x32\x15.genesys.BaseInterval\"\xab\x01\n\rIntervalGroup\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12+\n\x08\x64uration\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12$\n\tintervals\x18\x03 \x03(\x0b\x32\x11.genesys.Interval\x12-\n\x0e\x62\x61se_intervals\x18\x06 \x03(\x0b\x32\x15.genesys.BaseInterval\"f\n\x08Quantity\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x05 \x01(\t\x12\r\n\x05value\x18\x06 \x01(\x01\x12#\n\x08interval\x18\n \x01(\x0b\x32\x11.genesys.Interval\"]\n\rQuantityGroup\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x05 \x01(\t\x12$\n\tquantitys\x18\n \x03(\x0b\x32\x11.genesys.Quantity\"{\n\x10IntervalQuantity\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12#\n\x08interval\x18\x06 \x01(\x0b\x32\x11.genesys.Interval\x12(\n\x08quantity\x18\x07 \x01(\x0b\x32\x16.genesys.BasicQuantity\"F\n\rBasicQuantity\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x05 \x01(\t\x12\r\n\x05value\x18\n \x01(\x01\"g\n\x12\x42\x61sicQuantityGroup\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x05 \x01(\t\x12)\n\tquantitys\x18\n \x03(\x0b\x32\x16.genesys.BasicQuantity\"v\n\x15IntervalQuantityGroup\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x05 \x01(\t\x12\x35\n\x12interval_quantitys\x18\n \x03(\x0b\x32\x19.genesys.IntervalQuantityb\x06proto3'
+  serialized_pb=b'\n\x0fintervals.proto\x12\x07genesys\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\"m\n\x0c\x42\x61seInterval\x12+\n\x08\x64uration\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x30\n\x0cinterval_end\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xe5\x01\n\x08Interval\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12+\n\x08\x64uration\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x30\n\x0cinterval_end\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x32\n\x0einterval_begin\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\rbase_interval\x18\n \x01(\x0b\x32\x15.genesys.BaseInterval\"\xab\x01\n\rIntervalGroup\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12+\n\x08\x64uration\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12$\n\tintervals\x18\x03 \x03(\x0b\x32\x11.genesys.Interval\x12-\n\x0e\x62\x61se_intervals\x18\x06 \x03(\x0b\x32\x15.genesys.BaseInterval\"f\n\x08Quantity\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x05 \x01(\t\x12\r\n\x05value\x18\x06 \x01(\x01\x12#\n\x08interval\x18\n \x01(\x0b\x32\x11.genesys.Interval\"]\n\rQuantityGroup\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x05 \x01(\t\x12$\n\tquantitys\x18\n \x03(\x0b\x32\x11.genesys.Quantity\"{\n\x10IntervalQuantity\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12#\n\x08interval\x18\x06 \x01(\x0b\x32\x11.genesys.Interval\x12(\n\x08quantity\x18\x07 \x01(\x0b\x32\x16.genesys.BasicQuantity\"F\n\rBasicQuantity\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x05 \x01(\t\x12\r\n\x05value\x18\n \x01(\x01\"g\n\x12\x42\x61sicQuantityGroup\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x05 \x01(\t\x12)\n\tquantitys\x18\n \x03(\x0b\x32\x16.genesys.BasicQuantity\"v\n\x15IntervalQuantityGroup\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x05 \x01(\t\x12\x35\n\x12interval_quantitys\x18\n \x03(\x0b\x32\x19.genesys.IntervalQuantity\"_\n\x11UncertainQuantity\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x05 \x01(\t\x12\r\n\x05value\x18\n \x01(\x01\x12\x13\n\x0bprobability\x18\x0c \x01(\x01\"w\n\x16UncertainBasicQuantity\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12.\n\x0e\x62\x61sic_quantity\x18\x05 \x01(\x0b\x32\x16.genesys.BasicQuantity\x12\x13\n\x0bprobability\x18\x07 \x01(\x01\"\xbd\x01\n\x16UncertainQuantityGroup\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x05 \x01(\t\x12\x37\n\x13uncertain_quantitys\x18\n \x03(\x0b\x32\x1a.genesys.UncertainQuantity\x12\x42\n\x19uncertain_basic_quantitys\x18\x0c \x03(\x0b\x32\x1f.genesys.UncertainBasicQuantity\"h\n\x18\x44iscreteUncertaintyGroup\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x05 \x01(\t\x12\x0e\n\x06values\x18\x07 \x03(\x01\x12\x14\n\x0cprobabilitys\x18\t \x03(\x01\"\xa4\x01\n\x0e\x42\x61sicStatistic\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x04 \x01(\t\x12\x10\n\x08mean_val\x18\x05 \x01(\x01\x12\x10\n\x08variance\x18\x07 \x01(\x01\x12\x0f\n\x07max_val\x18\t \x01(\x01\x12\x0f\n\x07min_val\x18\n \x01(\x01\x12$\n\tquantiles\x18\x0c \x03(\x0b\x32\x11.genesys.Quantile\"s\n\x08Quantile\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x16\n\x0equantile_index\x18\x05 \x01(\x05\x12\x1d\n\x15quantiles_total_count\x18\x07 \x01(\x05\x12\x16\n\x0equantile_value\x18\t \x01(\x01\"l\n\x13\x42\x61sicStatisticGroup\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x04 \x01(\t\x12-\n\x0cuncertaintys\x18\x06 \x03(\x0b\x32\x17.genesys.BasicStatistic\"\xdd\x01\n\x0bUncertainty\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x30\n\x0f\x62\x61sic_statistic\x18\x05 \x01(\x0b\x32\x17.genesys.BasicStatistic\x12?\n\x14\x64iscrete_uncertainty\x18\x07 \x01(\x0b\x32!.genesys.DiscreteUncertaintyGroup\x12\x41\n\x18uncertain_quantity_group\x18\t \x01(\x0b\x32\x1f.genesys.UncertainQuantityGroup\"\x7f\n\x13UncertaintyInterval\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12)\n\x0buncertainty\x18\x06 \x01(\x0b\x32\x14.genesys.Uncertainty\x12#\n\x08interval\x18\x07 \x01(\x0b\x32\x11.genesys.Interval\"q\n\x18UncertaintyIntervalGroup\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12;\n\x15uncertainty_intervals\x18\x07 \x03(\x0b\x32\x1c.genesys.UncertaintyInterval\"\x87\x01\n\x19UncertaintyGroupIntervals\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12*\n\x0cuncertaintys\x18\x06 \x03(\x0b\x32\x14.genesys.Uncertainty\x12$\n\tintervals\x18\x08 \x03(\x0b\x32\x11.genesys.Interval\"w\n\x11UncertainScenario\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x33\n\x0escenario_value\x18\x05 \x01(\x0b\x32\x1b.genesys.BasicQuantityGroup\x12\x13\n\x0bprobability\x18\x0c \x01(\x01\"\\\n\rBasicScenario\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x05 \x01(\t\x12\x0e\n\x06values\x18\x07 \x03(\x01\x12\x13\n\x0bprobability\x18\t \x01(\x01\"a\n\x16UncertainScenarioGroup\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12-\n\tscenarios\x18\x05 \x03(\x0b\x32\x1a.genesys.UncertainScenario\"j\n\x1a\x42\x61sicValueProbabilityGroup\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x05 \x01(\t\x12\x0e\n\x06values\x18\x07 \x03(\x01\x12\x14\n\x0cprobabilitys\x18\t \x03(\x01\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,])
 
@@ -518,6 +518,864 @@ _INTERVALQUANTITYGROUP = _descriptor.Descriptor(
   serialized_end=1229,
 )
 
+
+_UNCERTAINQUANTITY = _descriptor.Descriptor(
+  name='UncertainQuantity',
+  full_name='genesys.UncertainQuantity',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.UncertainQuantity.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.UncertainQuantity.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='unit', full_name='genesys.UncertainQuantity.unit', index=2,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='genesys.UncertainQuantity.value', index=3,
+      number=10, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='probability', full_name='genesys.UncertainQuantity.probability', index=4,
+      number=12, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1231,
+  serialized_end=1326,
+)
+
+
+_UNCERTAINBASICQUANTITY = _descriptor.Descriptor(
+  name='UncertainBasicQuantity',
+  full_name='genesys.UncertainBasicQuantity',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.UncertainBasicQuantity.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.UncertainBasicQuantity.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='basic_quantity', full_name='genesys.UncertainBasicQuantity.basic_quantity', index=2,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='probability', full_name='genesys.UncertainBasicQuantity.probability', index=3,
+      number=7, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1328,
+  serialized_end=1447,
+)
+
+
+_UNCERTAINQUANTITYGROUP = _descriptor.Descriptor(
+  name='UncertainQuantityGroup',
+  full_name='genesys.UncertainQuantityGroup',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.UncertainQuantityGroup.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.UncertainQuantityGroup.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='unit', full_name='genesys.UncertainQuantityGroup.unit', index=2,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='uncertain_quantitys', full_name='genesys.UncertainQuantityGroup.uncertain_quantitys', index=3,
+      number=10, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='uncertain_basic_quantitys', full_name='genesys.UncertainQuantityGroup.uncertain_basic_quantitys', index=4,
+      number=12, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1450,
+  serialized_end=1639,
+)
+
+
+_DISCRETEUNCERTAINTYGROUP = _descriptor.Descriptor(
+  name='DiscreteUncertaintyGroup',
+  full_name='genesys.DiscreteUncertaintyGroup',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.DiscreteUncertaintyGroup.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.DiscreteUncertaintyGroup.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='unit', full_name='genesys.DiscreteUncertaintyGroup.unit', index=2,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='values', full_name='genesys.DiscreteUncertaintyGroup.values', index=3,
+      number=7, type=1, cpp_type=5, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='probabilitys', full_name='genesys.DiscreteUncertaintyGroup.probabilitys', index=4,
+      number=9, type=1, cpp_type=5, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1641,
+  serialized_end=1745,
+)
+
+
+_BASICSTATISTIC = _descriptor.Descriptor(
+  name='BasicStatistic',
+  full_name='genesys.BasicStatistic',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.BasicStatistic.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.BasicStatistic.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='unit', full_name='genesys.BasicStatistic.unit', index=2,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='mean_val', full_name='genesys.BasicStatistic.mean_val', index=3,
+      number=5, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='variance', full_name='genesys.BasicStatistic.variance', index=4,
+      number=7, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='max_val', full_name='genesys.BasicStatistic.max_val', index=5,
+      number=9, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='min_val', full_name='genesys.BasicStatistic.min_val', index=6,
+      number=10, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='quantiles', full_name='genesys.BasicStatistic.quantiles', index=7,
+      number=12, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1748,
+  serialized_end=1912,
+)
+
+
+_QUANTILE = _descriptor.Descriptor(
+  name='Quantile',
+  full_name='genesys.Quantile',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.Quantile.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.Quantile.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='quantile_index', full_name='genesys.Quantile.quantile_index', index=2,
+      number=5, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='quantiles_total_count', full_name='genesys.Quantile.quantiles_total_count', index=3,
+      number=7, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='quantile_value', full_name='genesys.Quantile.quantile_value', index=4,
+      number=9, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1914,
+  serialized_end=2029,
+)
+
+
+_BASICSTATISTICGROUP = _descriptor.Descriptor(
+  name='BasicStatisticGroup',
+  full_name='genesys.BasicStatisticGroup',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.BasicStatisticGroup.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.BasicStatisticGroup.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='unit', full_name='genesys.BasicStatisticGroup.unit', index=2,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='uncertaintys', full_name='genesys.BasicStatisticGroup.uncertaintys', index=3,
+      number=6, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2031,
+  serialized_end=2139,
+)
+
+
+_UNCERTAINTY = _descriptor.Descriptor(
+  name='Uncertainty',
+  full_name='genesys.Uncertainty',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.Uncertainty.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.Uncertainty.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='basic_statistic', full_name='genesys.Uncertainty.basic_statistic', index=2,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='discrete_uncertainty', full_name='genesys.Uncertainty.discrete_uncertainty', index=3,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='uncertain_quantity_group', full_name='genesys.Uncertainty.uncertain_quantity_group', index=4,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2142,
+  serialized_end=2363,
+)
+
+
+_UNCERTAINTYINTERVAL = _descriptor.Descriptor(
+  name='UncertaintyInterval',
+  full_name='genesys.UncertaintyInterval',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.UncertaintyInterval.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.UncertaintyInterval.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='uncertainty', full_name='genesys.UncertaintyInterval.uncertainty', index=2,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='interval', full_name='genesys.UncertaintyInterval.interval', index=3,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2365,
+  serialized_end=2492,
+)
+
+
+_UNCERTAINTYINTERVALGROUP = _descriptor.Descriptor(
+  name='UncertaintyIntervalGroup',
+  full_name='genesys.UncertaintyIntervalGroup',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.UncertaintyIntervalGroup.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.UncertaintyIntervalGroup.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='uncertainty_intervals', full_name='genesys.UncertaintyIntervalGroup.uncertainty_intervals', index=2,
+      number=7, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2494,
+  serialized_end=2607,
+)
+
+
+_UNCERTAINTYGROUPINTERVALS = _descriptor.Descriptor(
+  name='UncertaintyGroupIntervals',
+  full_name='genesys.UncertaintyGroupIntervals',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.UncertaintyGroupIntervals.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.UncertaintyGroupIntervals.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='uncertaintys', full_name='genesys.UncertaintyGroupIntervals.uncertaintys', index=2,
+      number=6, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='intervals', full_name='genesys.UncertaintyGroupIntervals.intervals', index=3,
+      number=8, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2610,
+  serialized_end=2745,
+)
+
+
+_UNCERTAINSCENARIO = _descriptor.Descriptor(
+  name='UncertainScenario',
+  full_name='genesys.UncertainScenario',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.UncertainScenario.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.UncertainScenario.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='scenario_value', full_name='genesys.UncertainScenario.scenario_value', index=2,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='probability', full_name='genesys.UncertainScenario.probability', index=3,
+      number=12, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2747,
+  serialized_end=2866,
+)
+
+
+_BASICSCENARIO = _descriptor.Descriptor(
+  name='BasicScenario',
+  full_name='genesys.BasicScenario',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.BasicScenario.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.BasicScenario.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='unit', full_name='genesys.BasicScenario.unit', index=2,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='values', full_name='genesys.BasicScenario.values', index=3,
+      number=7, type=1, cpp_type=5, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='probability', full_name='genesys.BasicScenario.probability', index=4,
+      number=9, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2868,
+  serialized_end=2960,
+)
+
+
+_UNCERTAINSCENARIOGROUP = _descriptor.Descriptor(
+  name='UncertainScenarioGroup',
+  full_name='genesys.UncertainScenarioGroup',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.UncertainScenarioGroup.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.UncertainScenarioGroup.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='scenarios', full_name='genesys.UncertainScenarioGroup.scenarios', index=2,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2962,
+  serialized_end=3059,
+)
+
+
+_BASICVALUEPROBABILITYGROUP = _descriptor.Descriptor(
+  name='BasicValueProbabilityGroup',
+  full_name='genesys.BasicValueProbabilityGroup',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.BasicValueProbabilityGroup.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.BasicValueProbabilityGroup.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='unit', full_name='genesys.BasicValueProbabilityGroup.unit', index=2,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='values', full_name='genesys.BasicValueProbabilityGroup.values', index=3,
+      number=7, type=1, cpp_type=5, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='probabilitys', full_name='genesys.BasicValueProbabilityGroup.probabilitys', index=4,
+      number=9, type=1, cpp_type=5, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3061,
+  serialized_end=3167,
+)
+
 _BASEINTERVAL.fields_by_name['duration'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _BASEINTERVAL.fields_by_name['interval_end'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _INTERVAL.fields_by_name['duration'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
@@ -533,6 +1391,21 @@ _INTERVALQUANTITY.fields_by_name['interval'].message_type = _INTERVAL
 _INTERVALQUANTITY.fields_by_name['quantity'].message_type = _BASICQUANTITY
 _BASICQUANTITYGROUP.fields_by_name['quantitys'].message_type = _BASICQUANTITY
 _INTERVALQUANTITYGROUP.fields_by_name['interval_quantitys'].message_type = _INTERVALQUANTITY
+_UNCERTAINBASICQUANTITY.fields_by_name['basic_quantity'].message_type = _BASICQUANTITY
+_UNCERTAINQUANTITYGROUP.fields_by_name['uncertain_quantitys'].message_type = _UNCERTAINQUANTITY
+_UNCERTAINQUANTITYGROUP.fields_by_name['uncertain_basic_quantitys'].message_type = _UNCERTAINBASICQUANTITY
+_BASICSTATISTIC.fields_by_name['quantiles'].message_type = _QUANTILE
+_BASICSTATISTICGROUP.fields_by_name['uncertaintys'].message_type = _BASICSTATISTIC
+_UNCERTAINTY.fields_by_name['basic_statistic'].message_type = _BASICSTATISTIC
+_UNCERTAINTY.fields_by_name['discrete_uncertainty'].message_type = _DISCRETEUNCERTAINTYGROUP
+_UNCERTAINTY.fields_by_name['uncertain_quantity_group'].message_type = _UNCERTAINQUANTITYGROUP
+_UNCERTAINTYINTERVAL.fields_by_name['uncertainty'].message_type = _UNCERTAINTY
+_UNCERTAINTYINTERVAL.fields_by_name['interval'].message_type = _INTERVAL
+_UNCERTAINTYINTERVALGROUP.fields_by_name['uncertainty_intervals'].message_type = _UNCERTAINTYINTERVAL
+_UNCERTAINTYGROUPINTERVALS.fields_by_name['uncertaintys'].message_type = _UNCERTAINTY
+_UNCERTAINTYGROUPINTERVALS.fields_by_name['intervals'].message_type = _INTERVAL
+_UNCERTAINSCENARIO.fields_by_name['scenario_value'].message_type = _BASICQUANTITYGROUP
+_UNCERTAINSCENARIOGROUP.fields_by_name['scenarios'].message_type = _UNCERTAINSCENARIO
 DESCRIPTOR.message_types_by_name['BaseInterval'] = _BASEINTERVAL
 DESCRIPTOR.message_types_by_name['Interval'] = _INTERVAL
 DESCRIPTOR.message_types_by_name['IntervalGroup'] = _INTERVALGROUP
@@ -542,6 +1415,21 @@ DESCRIPTOR.message_types_by_name['IntervalQuantity'] = _INTERVALQUANTITY
 DESCRIPTOR.message_types_by_name['BasicQuantity'] = _BASICQUANTITY
 DESCRIPTOR.message_types_by_name['BasicQuantityGroup'] = _BASICQUANTITYGROUP
 DESCRIPTOR.message_types_by_name['IntervalQuantityGroup'] = _INTERVALQUANTITYGROUP
+DESCRIPTOR.message_types_by_name['UncertainQuantity'] = _UNCERTAINQUANTITY
+DESCRIPTOR.message_types_by_name['UncertainBasicQuantity'] = _UNCERTAINBASICQUANTITY
+DESCRIPTOR.message_types_by_name['UncertainQuantityGroup'] = _UNCERTAINQUANTITYGROUP
+DESCRIPTOR.message_types_by_name['DiscreteUncertaintyGroup'] = _DISCRETEUNCERTAINTYGROUP
+DESCRIPTOR.message_types_by_name['BasicStatistic'] = _BASICSTATISTIC
+DESCRIPTOR.message_types_by_name['Quantile'] = _QUANTILE
+DESCRIPTOR.message_types_by_name['BasicStatisticGroup'] = _BASICSTATISTICGROUP
+DESCRIPTOR.message_types_by_name['Uncertainty'] = _UNCERTAINTY
+DESCRIPTOR.message_types_by_name['UncertaintyInterval'] = _UNCERTAINTYINTERVAL
+DESCRIPTOR.message_types_by_name['UncertaintyIntervalGroup'] = _UNCERTAINTYINTERVALGROUP
+DESCRIPTOR.message_types_by_name['UncertaintyGroupIntervals'] = _UNCERTAINTYGROUPINTERVALS
+DESCRIPTOR.message_types_by_name['UncertainScenario'] = _UNCERTAINSCENARIO
+DESCRIPTOR.message_types_by_name['BasicScenario'] = _BASICSCENARIO
+DESCRIPTOR.message_types_by_name['UncertainScenarioGroup'] = _UNCERTAINSCENARIOGROUP
+DESCRIPTOR.message_types_by_name['BasicValueProbabilityGroup'] = _BASICVALUEPROBABILITYGROUP
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 BaseInterval = _reflection.GeneratedProtocolMessageType('BaseInterval', (_message.Message,), {
@@ -606,6 +1494,111 @@ IntervalQuantityGroup = _reflection.GeneratedProtocolMessageType('IntervalQuanti
   # @@protoc_insertion_point(class_scope:genesys.IntervalQuantityGroup)
   })
 _sym_db.RegisterMessage(IntervalQuantityGroup)
+
+UncertainQuantity = _reflection.GeneratedProtocolMessageType('UncertainQuantity', (_message.Message,), {
+  'DESCRIPTOR' : _UNCERTAINQUANTITY,
+  '__module__' : 'intervals_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.UncertainQuantity)
+  })
+_sym_db.RegisterMessage(UncertainQuantity)
+
+UncertainBasicQuantity = _reflection.GeneratedProtocolMessageType('UncertainBasicQuantity', (_message.Message,), {
+  'DESCRIPTOR' : _UNCERTAINBASICQUANTITY,
+  '__module__' : 'intervals_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.UncertainBasicQuantity)
+  })
+_sym_db.RegisterMessage(UncertainBasicQuantity)
+
+UncertainQuantityGroup = _reflection.GeneratedProtocolMessageType('UncertainQuantityGroup', (_message.Message,), {
+  'DESCRIPTOR' : _UNCERTAINQUANTITYGROUP,
+  '__module__' : 'intervals_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.UncertainQuantityGroup)
+  })
+_sym_db.RegisterMessage(UncertainQuantityGroup)
+
+DiscreteUncertaintyGroup = _reflection.GeneratedProtocolMessageType('DiscreteUncertaintyGroup', (_message.Message,), {
+  'DESCRIPTOR' : _DISCRETEUNCERTAINTYGROUP,
+  '__module__' : 'intervals_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.DiscreteUncertaintyGroup)
+  })
+_sym_db.RegisterMessage(DiscreteUncertaintyGroup)
+
+BasicStatistic = _reflection.GeneratedProtocolMessageType('BasicStatistic', (_message.Message,), {
+  'DESCRIPTOR' : _BASICSTATISTIC,
+  '__module__' : 'intervals_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.BasicStatistic)
+  })
+_sym_db.RegisterMessage(BasicStatistic)
+
+Quantile = _reflection.GeneratedProtocolMessageType('Quantile', (_message.Message,), {
+  'DESCRIPTOR' : _QUANTILE,
+  '__module__' : 'intervals_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.Quantile)
+  })
+_sym_db.RegisterMessage(Quantile)
+
+BasicStatisticGroup = _reflection.GeneratedProtocolMessageType('BasicStatisticGroup', (_message.Message,), {
+  'DESCRIPTOR' : _BASICSTATISTICGROUP,
+  '__module__' : 'intervals_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.BasicStatisticGroup)
+  })
+_sym_db.RegisterMessage(BasicStatisticGroup)
+
+Uncertainty = _reflection.GeneratedProtocolMessageType('Uncertainty', (_message.Message,), {
+  'DESCRIPTOR' : _UNCERTAINTY,
+  '__module__' : 'intervals_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.Uncertainty)
+  })
+_sym_db.RegisterMessage(Uncertainty)
+
+UncertaintyInterval = _reflection.GeneratedProtocolMessageType('UncertaintyInterval', (_message.Message,), {
+  'DESCRIPTOR' : _UNCERTAINTYINTERVAL,
+  '__module__' : 'intervals_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.UncertaintyInterval)
+  })
+_sym_db.RegisterMessage(UncertaintyInterval)
+
+UncertaintyIntervalGroup = _reflection.GeneratedProtocolMessageType('UncertaintyIntervalGroup', (_message.Message,), {
+  'DESCRIPTOR' : _UNCERTAINTYINTERVALGROUP,
+  '__module__' : 'intervals_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.UncertaintyIntervalGroup)
+  })
+_sym_db.RegisterMessage(UncertaintyIntervalGroup)
+
+UncertaintyGroupIntervals = _reflection.GeneratedProtocolMessageType('UncertaintyGroupIntervals', (_message.Message,), {
+  'DESCRIPTOR' : _UNCERTAINTYGROUPINTERVALS,
+  '__module__' : 'intervals_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.UncertaintyGroupIntervals)
+  })
+_sym_db.RegisterMessage(UncertaintyGroupIntervals)
+
+UncertainScenario = _reflection.GeneratedProtocolMessageType('UncertainScenario', (_message.Message,), {
+  'DESCRIPTOR' : _UNCERTAINSCENARIO,
+  '__module__' : 'intervals_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.UncertainScenario)
+  })
+_sym_db.RegisterMessage(UncertainScenario)
+
+BasicScenario = _reflection.GeneratedProtocolMessageType('BasicScenario', (_message.Message,), {
+  'DESCRIPTOR' : _BASICSCENARIO,
+  '__module__' : 'intervals_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.BasicScenario)
+  })
+_sym_db.RegisterMessage(BasicScenario)
+
+UncertainScenarioGroup = _reflection.GeneratedProtocolMessageType('UncertainScenarioGroup', (_message.Message,), {
+  'DESCRIPTOR' : _UNCERTAINSCENARIOGROUP,
+  '__module__' : 'intervals_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.UncertainScenarioGroup)
+  })
+_sym_db.RegisterMessage(UncertainScenarioGroup)
+
+BasicValueProbabilityGroup = _reflection.GeneratedProtocolMessageType('BasicValueProbabilityGroup', (_message.Message,), {
+  'DESCRIPTOR' : _BASICVALUEPROBABILITYGROUP,
+  '__module__' : 'intervals_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.BasicValueProbabilityGroup)
+  })
+_sym_db.RegisterMessage(BasicValueProbabilityGroup)
 
 
 # @@protoc_insertion_point(module_scope)

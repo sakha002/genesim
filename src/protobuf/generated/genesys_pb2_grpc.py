@@ -2,3 +2,65 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+import genesys_pb2 as genesys__pb2
+
+
+class GenModelServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.OptimizeAsset = channel.unary_unary(
+                '/genesys.GenModelService/OptimizeAsset',
+                request_serializer=genesys__pb2.GenModelRequest.SerializeToString,
+                response_deserializer=genesys__pb2.GenSolutionResponse.FromString,
+                )
+
+
+class GenModelServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def OptimizeAsset(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_GenModelServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'OptimizeAsset': grpc.unary_unary_rpc_method_handler(
+                    servicer.OptimizeAsset,
+                    request_deserializer=genesys__pb2.GenModelRequest.FromString,
+                    response_serializer=genesys__pb2.GenSolutionResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'genesys.GenModelService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class GenModelService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def OptimizeAsset(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/genesys.GenModelService/OptimizeAsset',
+            genesys__pb2.GenModelRequest.SerializeToString,
+            genesys__pb2.GenSolutionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

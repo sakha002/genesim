@@ -12,6 +12,9 @@ _sym_db = _symbol_database.Default()
 
 
 import asset_groups_pb2 as asset__groups__pb2
+import assets_pb2 as assets__pb2
+import service_catalogue_pb2 as service__catalogue__pb2
+import intervals_pb2 as intervals__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,13 +23,373 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\rgenesys.proto\x12\x07genesys\x1a\x12\x61sset_groups.protob\x06proto3'
+  serialized_pb=b'\n\rgenesys.proto\x12\x07genesys\x1a\x12\x61sset_groups.proto\x1a\x0c\x61ssets.proto\x1a\x17service_catalogue.proto\x1a\x0fintervals.proto\"\x88\x02\n\x0fGenModelRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x31\n\x13model_configuration\x18\x05 \x01(\x0b\x32\x14.genesys.ModelConfig\x12\x1e\n\x06\x61sstes\x18\x06 \x03(\x0b\x32\x0e.genesys.Asset\x12)\n\x0c\x61sset_groups\x18\x07 \x03(\x0b\x32\x13.genesys.AssetGroup\x12\x34\n\x11service_catalogue\x18\t \x01(\x0b\x32\x19.genesys.ServiceCatalogue\x12\'\n\npredefined\x18\x0b \x01(\x0b\x32\x13.genesys.PreDefined\"z\n\x13GenSolutionResponse\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x1e\n\x06\x61sstes\x18\x05 \x03(\x0b\x32\x0e.genesys.Asset\x12)\n\x0c\x61sset_groups\x18\x07 \x03(\x0b\x32\x13.genesys.AssetGroup\"\xf5\x01\n\x0bModelConfig\x12+\n\x06solver\x18\x03 \x01(\x0e\x32\x1b.genesys.ModelConfig.Solver\x12\'\n\x07horizon\x18\x05 \x01(\x0b\x32\x16.genesys.IntervalGroup\x12\x38\n\rresponse_type\x18\x07 \x01(\x0e\x32!.genesys.ModelConfig.ResponseType\"1\n\x06Solver\x12\t\n\x05UNSET\x10\x00\x12\t\n\x05GOLAP\x10\x01\x12\x07\n\x03\x43\x42\x43\x10\x02\x12\x08\n\x04GLPK\x10\x03\"#\n\x0cResponseType\x12\t\n\x05SHORT\x10\x00\x12\x08\n\x04\x46ULL\x10\x01\"q\n\nPreDefined\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x1e\n\x06\x61sstes\x18\x05 \x03(\x0b\x32\x0e.genesys.Asset\x12)\n\x0c\x61sset_groups\x18\x07 \x03(\x0b\x32\x13.genesys.AssetGroup2\\\n\x0fGenModelService\x12I\n\rOptimizeAsset\x12\x18.genesys.GenModelRequest\x1a\x1c.genesys.GenSolutionResponse\"\x00\x62\x06proto3'
   ,
-  dependencies=[asset__groups__pb2.DESCRIPTOR,])
+  dependencies=[asset__groups__pb2.DESCRIPTOR,assets__pb2.DESCRIPTOR,service__catalogue__pb2.DESCRIPTOR,intervals__pb2.DESCRIPTOR,])
 
 
 
+_MODELCONFIG_SOLVER = _descriptor.EnumDescriptor(
+  name='Solver',
+  full_name='genesys.ModelConfig.Solver',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='UNSET', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='GOLAP', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CBC', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='GLPK', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=653,
+  serialized_end=702,
+)
+_sym_db.RegisterEnumDescriptor(_MODELCONFIG_SOLVER)
+
+_MODELCONFIG_RESPONSETYPE = _descriptor.EnumDescriptor(
+  name='ResponseType',
+  full_name='genesys.ModelConfig.ResponseType',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='SHORT', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='FULL', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=704,
+  serialized_end=739,
+)
+_sym_db.RegisterEnumDescriptor(_MODELCONFIG_RESPONSETYPE)
+
+
+_GENMODELREQUEST = _descriptor.Descriptor(
+  name='GenModelRequest',
+  full_name='genesys.GenModelRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.GenModelRequest.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.GenModelRequest.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='model_configuration', full_name='genesys.GenModelRequest.model_configuration', index=2,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='asstes', full_name='genesys.GenModelRequest.asstes', index=3,
+      number=6, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='asset_groups', full_name='genesys.GenModelRequest.asset_groups', index=4,
+      number=7, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='service_catalogue', full_name='genesys.GenModelRequest.service_catalogue', index=5,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='predefined', full_name='genesys.GenModelRequest.predefined', index=6,
+      number=11, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=103,
+  serialized_end=367,
+)
+
+
+_GENSOLUTIONRESPONSE = _descriptor.Descriptor(
+  name='GenSolutionResponse',
+  full_name='genesys.GenSolutionResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.GenSolutionResponse.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.GenSolutionResponse.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='asstes', full_name='genesys.GenSolutionResponse.asstes', index=2,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='asset_groups', full_name='genesys.GenSolutionResponse.asset_groups', index=3,
+      number=7, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=369,
+  serialized_end=491,
+)
+
+
+_MODELCONFIG = _descriptor.Descriptor(
+  name='ModelConfig',
+  full_name='genesys.ModelConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='solver', full_name='genesys.ModelConfig.solver', index=0,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='horizon', full_name='genesys.ModelConfig.horizon', index=1,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='response_type', full_name='genesys.ModelConfig.response_type', index=2,
+      number=7, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _MODELCONFIG_SOLVER,
+    _MODELCONFIG_RESPONSETYPE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=494,
+  serialized_end=739,
+)
+
+
+_PREDEFINED = _descriptor.Descriptor(
+  name='PreDefined',
+  full_name='genesys.PreDefined',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='genesys.PreDefined.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='genesys.PreDefined.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='asstes', full_name='genesys.PreDefined.asstes', index=2,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='asset_groups', full_name='genesys.PreDefined.asset_groups', index=3,
+      number=7, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=741,
+  serialized_end=854,
+)
+
+_GENMODELREQUEST.fields_by_name['model_configuration'].message_type = _MODELCONFIG
+_GENMODELREQUEST.fields_by_name['asstes'].message_type = assets__pb2._ASSET
+_GENMODELREQUEST.fields_by_name['asset_groups'].message_type = asset__groups__pb2._ASSETGROUP
+_GENMODELREQUEST.fields_by_name['service_catalogue'].message_type = service__catalogue__pb2._SERVICECATALOGUE
+_GENMODELREQUEST.fields_by_name['predefined'].message_type = _PREDEFINED
+_GENSOLUTIONRESPONSE.fields_by_name['asstes'].message_type = assets__pb2._ASSET
+_GENSOLUTIONRESPONSE.fields_by_name['asset_groups'].message_type = asset__groups__pb2._ASSETGROUP
+_MODELCONFIG.fields_by_name['solver'].enum_type = _MODELCONFIG_SOLVER
+_MODELCONFIG.fields_by_name['horizon'].message_type = intervals__pb2._INTERVALGROUP
+_MODELCONFIG.fields_by_name['response_type'].enum_type = _MODELCONFIG_RESPONSETYPE
+_MODELCONFIG_SOLVER.containing_type = _MODELCONFIG
+_MODELCONFIG_RESPONSETYPE.containing_type = _MODELCONFIG
+_PREDEFINED.fields_by_name['asstes'].message_type = assets__pb2._ASSET
+_PREDEFINED.fields_by_name['asset_groups'].message_type = asset__groups__pb2._ASSETGROUP
+DESCRIPTOR.message_types_by_name['GenModelRequest'] = _GENMODELREQUEST
+DESCRIPTOR.message_types_by_name['GenSolutionResponse'] = _GENSOLUTIONRESPONSE
+DESCRIPTOR.message_types_by_name['ModelConfig'] = _MODELCONFIG
+DESCRIPTOR.message_types_by_name['PreDefined'] = _PREDEFINED
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
+GenModelRequest = _reflection.GeneratedProtocolMessageType('GenModelRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GENMODELREQUEST,
+  '__module__' : 'genesys_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.GenModelRequest)
+  })
+_sym_db.RegisterMessage(GenModelRequest)
+
+GenSolutionResponse = _reflection.GeneratedProtocolMessageType('GenSolutionResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GENSOLUTIONRESPONSE,
+  '__module__' : 'genesys_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.GenSolutionResponse)
+  })
+_sym_db.RegisterMessage(GenSolutionResponse)
+
+ModelConfig = _reflection.GeneratedProtocolMessageType('ModelConfig', (_message.Message,), {
+  'DESCRIPTOR' : _MODELCONFIG,
+  '__module__' : 'genesys_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.ModelConfig)
+  })
+_sym_db.RegisterMessage(ModelConfig)
+
+PreDefined = _reflection.GeneratedProtocolMessageType('PreDefined', (_message.Message,), {
+  'DESCRIPTOR' : _PREDEFINED,
+  '__module__' : 'genesys_pb2'
+  # @@protoc_insertion_point(class_scope:genesys.PreDefined)
+  })
+_sym_db.RegisterMessage(PreDefined)
+
+
+
+_GENMODELSERVICE = _descriptor.ServiceDescriptor(
+  name='GenModelService',
+  full_name='genesys.GenModelService',
+  file=DESCRIPTOR,
+  index=0,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=856,
+  serialized_end=948,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='OptimizeAsset',
+    full_name='genesys.GenModelService.OptimizeAsset',
+    index=0,
+    containing_service=None,
+    input_type=_GENMODELREQUEST,
+    output_type=_GENSOLUTIONRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_GENMODELSERVICE)
+
+DESCRIPTOR.services_by_name['GenModelService'] = _GENMODELSERVICE
 
 # @@protoc_insertion_point(module_scope)
