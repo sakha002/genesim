@@ -1,0 +1,3 @@
+[submodule "src/protobuf/genesys-proto"]
+	path = src/protobuf/genesys-proto
+	url = https://github.com/sakha002/genesys-proto.git
