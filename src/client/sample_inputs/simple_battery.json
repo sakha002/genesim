@@ -1,0 +1,149 @@
+{
+    "id":  1,
+    "name":  "simple_battery_model",
+    "model_configuration": {
+        "solver": 0,
+        "horizon": {
+            "name": "daily_horizon",
+            "intervals": [
+                {
+                    "duration":{
+                        "seconds":3600
+                    },
+                    "interval_end": "2020-08-10T01:00:00Z"
+                },
+                {
+                    "duration":{
+                        "seconds":3600
+                    },
+                    "interval_end": "2020-08-10T02:00:00Z"
+                },
+                {
+                    "duration":{
+                        "seconds":3600
+                    },
+                    "interval_end": "2020-08-10T03:00:00Z"
+                },
+                {
+                    "duration":{
+                        "seconds":3600
+                    },
+                    "interval_end": "2020-08-10T04:00:00Z"
+                },
+                {
+                    "duration":{
+                        "seconds":3600
+                    },
+                    "interval_end": "2020-08-10T05:00:00Z"
+                },
+                {
+                    "duration":{
+                        "seconds":3600
+                    },
+                    "interval_end": "2020-08-10T06:00:00Z"
+                },
+                {
+                    "duration":{
+                        "seconds":3600
+                    },
+                    "interval_end": "2020-08-10T07:00:00Z"
+                },
+                {
+                    "duration":{
+                        "seconds":3600
+                    },
+                    "interval_end": "2020-08-10T08:00:00Z"
+                },
+                {
+                    "duration":{
+                        "seconds":3600
+                    },
+                    "interval_end": "2020-08-10T09:00:00Z"
+                },
+                {
+                    "duration":{
+                        "seconds":3600
+                    },
+                    "interval_end": "2020-08-10T10:00:00Z"
+                },
+                {
+                    "duration":{
+                        "seconds":3600
+                    },
+                    "interval_end": "2020-08-10T11:00:00Z"
+                },
+                {
+                    "duration":{
+                        "seconds":3600
+                    },
+                    "interval_end": "2020-08-10T12:00:00Z"
+                }
+            ]
+        },
+        "response_type": 1
+    },
+    "asstes": [
+        {
+            "id": 1,
+            "name": "asset_1",
+            "battery": {
+                "energy_property":{
+                    "capacity": {
+                        "unit": "MWH",
+                        "value": 10
+                    },
+                    "depth_of_discharge_max": {
+                        "unit": "PERCENT",
+                        "value": 80
+                    },
+                    "depth_of_discharge_min": {
+                        "unit": "PERCENT",
+                        "value": 5
+                    }
+                },
+                "power_property": {
+                    "operation_limit": {
+                        "charge_max": {
+                            "unit": "MW",
+                            "value": 5
+                        },
+                        "discharge_max": {
+                            "unit": "MW",
+                            "value": 5
+                        }
+                    },
+                    "nominal_limit": {
+                        "charge_max": {
+                            "unit": "MW",
+                            "value": 5
+                        },
+                        "discharge_max": {
+                            "unit": "MW",
+                            "value": 5
+                        }
+                    }
+                },
+                "degradation_property": {
+                    "cycling_limit": {
+                        "unit": "CYCLES_PER_DAY",
+                        "value": 1
+                    }
+                },
+                "services": [
+                    {
+                        "id": 1,
+                        "name": "daily_arbitrage",
+                        "arbitrage": {
+                            
+                        }
+                    }
+                ]
+
+            }
+
+        }
+    ],
+    "asset_groups": [
+
+    ]
+}
