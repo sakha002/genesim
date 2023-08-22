@@ -41,9 +41,9 @@ class Load(Asset):
     def add_load_energy_power_bind_constraints(self) -> None:
         for interval in self.asset_params.intervals:
             self.model.add_constraint(
-                name=f"load_{self.name}_E_t{interval.index}_power_bind",
+                name=f"load_{self.name}_E_in_t{interval.index}_power_bind",
                 constraint=(
-                    self.model.get_var(f"asset_{self.name}_E_t{interval.index}")
-                    ==  - self.model.get_var(f"asset_{self.name}_P_in_t{interval.index}")
+                    self.model.get_var(f"asset_{self.name}_E_in_t{interval.index}")
+                    == self.model.get_var(f"asset_{self.name}_P_in_t{interval.index}")
                 ),
             )

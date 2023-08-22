@@ -1,9 +1,9 @@
 from typing import List
+from abc import abstractmethod
 from .model import Model, VarType   
 from .parameters.service import ServiceParameters
-
 from .asset import Asset
-
+from .opt_types import AssetGroupT
 
 class Service:
     def __init__(
@@ -145,3 +145,9 @@ class Service:
                 )
             
         return
+    
+    @abstractmethod
+    def add_asset_group_coupling(self, asset_group: AssetGroupT) -> None:
+        raise NotImplementedError
+        
+        

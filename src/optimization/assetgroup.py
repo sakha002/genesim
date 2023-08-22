@@ -106,6 +106,7 @@ class AssetGroup:
                 )
 
         for service in services:
+            service.add_asset_group_coupling(self)
             service.add_assets(assets)
         
         for asset in assets:

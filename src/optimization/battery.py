@@ -16,13 +16,9 @@ class Battery(Asset):
             asset_params=asset_params,
         )
         
-        
-        
-        
-        
-        # self.add_battery_power_balance_constraints()
-        # self.add_battery_energy_power_bind_constraints()
-        
+        self.add_battery_soc_vars()
+        self.set_battery_soc_dynamic_constraints()
+                
         return
     
     
