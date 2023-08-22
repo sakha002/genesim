@@ -14,6 +14,7 @@ class Asset:
         self.name = asset_params.name
         self.asset_params = asset_params
         self.model = model
+        self._services: List[ServiceT] = []
         for interval in asset_params.intervals:
             if asset_params.P_out_max[interval.index] != 0:
                 model.add_var(
@@ -48,8 +49,13 @@ class Asset:
     
     
     def add_services(self, services: List[ServiceT]) -> None:
+        self._services += services
+        
+    
+    
+    # Construct method
+    def add_service_constraints(self) -> None:
         for interval in self.asset_params.intervals:
-            
             if self.model.get_var(f"asset_{self.name}_P_out_t{interval.index}") is not None:
                 self.model.add_constraint(
                     name=f"asset_{self.name}_P_out_t{interval.index}_service_requirement",
@@ -58,7 +64,7 @@ class Asset:
                         == self.model.sum_vars(
                             vars=[
                                 self.model.get_var(f"asset_{self.name}_service_{service.name}_P_out_t{interval.index}_var")
-                                for service in services
+                                for service in self._services
                             ]
                         )
                     ),
@@ -72,7 +78,7 @@ class Asset:
                         == self.model.sum_vars(
                             vars=[
                                 self.model.get_var(f"asset_{self.name}_service_{service.name}_P_in_t{interval.index}_var")
-                                for service in services
+                                for service in self._services
                             ]
                         )
                     ),
@@ -85,7 +91,7 @@ class Asset:
                     == self.model.sum_vars(
                         vars=[
                             self.model.get_var(f"asset_{self.name}_service_{service.name}_E_t{interval.index}_var")
-                            for service in services
+                            for service in self._services
                         ]
                     )
                 ),

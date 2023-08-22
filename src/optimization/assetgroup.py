@@ -49,7 +49,7 @@ class AssetGroup:
             #         + model.get_var(f"asset_group_{name}_P_out_t{interval.index}")
             #     ),
             # )
-        
+
         for interval in asset_group_params.intervals:
             if model.get_var(f"asset_group_{self.name}_P_out_t{interval.index}") is not None:
                 model.add_constraint(
@@ -78,8 +78,7 @@ class AssetGroup:
                         )
                     ),
                 )
-            # the E_t of asset_group is sum of Et over assets
-            # the relation of E_t and P_t will be determined under asset subclasses with respect to services?
+                
             model.add_constraint(
                 name=f"asset_group_{self.name}_E_t{interval.index}_asset_bind",
                 constraint=(
@@ -94,12 +93,11 @@ class AssetGroup:
             )
                
 
-        
-        for service in self.services:
+        for service in services:
             service.add_assets(assets)
         
-        for asset in self.assets:
-            asset.add_services(self.services)
+        for asset in assets:
+            asset.add_services(services)
             
         
         
@@ -120,3 +118,6 @@ class AssetGroup:
     #                 )
     #             ),
     #         )
+    
+    
+    # the relation of E_t and P_t will be determined under asset subclasses with respect to services?
