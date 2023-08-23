@@ -10,7 +10,7 @@ class EnergyImportChargeParameters(ServiceParameters):
     
     
     @staticmethod
-    def create_energy_export_charges(
+    def create_energy_import_charges(
         intervals: List[Interval],
         import_charge_rate: float,
     ):

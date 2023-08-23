@@ -47,16 +47,11 @@ class Asset:
                     lb=asset_params.P_in_min[interval.index],
                     ub=asset_params.P_in_max[interval.index],
                 )
-                
            
-        
-    
-    
+            
     def add_services(self, services: List[ServiceT]) -> None:
         self._services += services
         
-    
-    
     # Construct method
     def add_service_constraints(self) -> None:
         for interval in self.asset_params.intervals:
