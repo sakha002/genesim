@@ -1,8 +1,9 @@
-from typing import TypeVar
-from .service import Service
-from .assetgroup import AssetGroup
+# from __future__ import annotations
+# from typing import TypeVar
+# from service import Service
+# from assetgroup import AssetGroup
 
 
-ServiceT = TypeVar("ServiceT", bound="Service")
+# ServiceT = TypeVar("ServiceT", bound="Service")
 
-AssetGroupT = TypeVar("AssetGroupT", bound="AssetGroup")
+# AssetGroupT = TypeVar("AssetGroupT", bound="AssetGroup")

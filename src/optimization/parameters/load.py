@@ -15,6 +15,7 @@ class LoadParameters(AssetParameters):
     def read_load_data(intervals: List[Interval], load_vals: List[float]) -> "LoadParameters":
         
         return LoadParameters(
+            name="uncontrollable_load"
             intervals=intervals,
             P_in_max=[max(load_vals) for _ in intervals],
             P_out_max=[0 for _ in intervals],

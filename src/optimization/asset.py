@@ -1,7 +1,9 @@
-from .model import Model, VarType
-from .parameters.asset import AssetParameters
+from __future__ import annotations
+from model import Model, VarType
+from parameters.asset import AssetParameters
 from typing import List
-from opt_types import ServiceT
+# from opt_types import ServiceT
+# import service
 
 class Asset:
     
@@ -14,7 +16,7 @@ class Asset:
         self.name = asset_params.name
         self.asset_params = asset_params
         self.model = model
-        self._services: List[ServiceT] = []
+        self._services: List['service.Service'] = []
         for interval in asset_params.intervals:
             if asset_params.P_out_max[interval.index] != 0:
                 model.add_var(
@@ -49,7 +51,7 @@ class Asset:
                 )
            
             
-    def add_services(self, services: List[ServiceT]) -> None:
+    def add_services(self, services: List['service.Service']) -> None:
         self._services += services
         
     # Construct method

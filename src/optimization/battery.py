@@ -1,6 +1,6 @@
-from .asset import Asset
-from .model import Model, VarType
-from .parameters.battery import BatteryParameters
+from asset import Asset
+from model import Model, VarType
+from parameters.battery import BatteryParameters
 
 
 

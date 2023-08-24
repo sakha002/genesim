@@ -1,6 +1,6 @@
-from .asset import Asset
-from .model import Model
-from .parameters.solar import SolarParameters
+from asset import Asset
+from model import Model
+from parameters.solar import SolarParameters
 
 class Solar(Asset):
     def __init__(

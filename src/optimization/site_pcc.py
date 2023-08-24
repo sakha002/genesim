@@ -1,13 +1,13 @@
 from typing import List
-from .assetgroup import AssetGroup
-from .asset import Asset
-from .model import Model, VarType
-from .service import Service
-from .parameters.site import SiteParameters
+from assetgroup import AssetGroup
+from asset import Asset
+from model import Model, VarType
+from service import Service
+from parameters.site import SiteParameters
 
 
 
-class Site(AssetGroup):
+class SitePCC(AssetGroup):
     
     def __init__(
         self,
@@ -28,4 +28,3 @@ class Site(AssetGroup):
         
         return
     
-        

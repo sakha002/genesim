@@ -1,7 +1,8 @@
-from .service import Service
-from .model import Model
-from .parameters.tariff_charges import EnergyImportChargeParameters
-from .opt_types import AssetGroupT
+from __future__ import annotations
+from service import Service
+from model import Model
+from parameters.tariff_charges import EnergyImportChargeParameters
+# from opt_types import AssetGroupT
 
 class EnergyImportCharge(Service):
     def __init__(
@@ -22,7 +23,7 @@ class EnergyImportCharge(Service):
     
     
     
-    def add_asset_group_coupling(self, asset_group: AssetGroupT) -> None:
+    def add_asset_group_coupling(self, asset_group: "assetgroup.AssetGroup") -> None:
         return
     
     

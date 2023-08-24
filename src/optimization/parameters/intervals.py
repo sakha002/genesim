@@ -6,9 +6,9 @@ from typing import Optional, List
 
 @dataclass
 class Interval:
+    index: int
     interval_end: Optional[datetime]
     interval_duration: timedelta = timedelta(minutes=60)
-    index: int
     
     
     @staticmethod

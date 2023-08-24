@@ -1,18 +1,19 @@
+# from __future__ import annotations
 from typing import List
-from .data.input_parser import InputData
-from .parameters.intervals import Interval
-from .load import Load
-from .solar import Solar
-from .battery import Battery
-from .site import Site
-from .model import Model
-from .asset import Asset
-from .energy_import_charge import EnergyImportCharge
-from .parameters.tariff_charges import EnergyImportChargeParameters
-from .parameters.site import SiteParameters
-from .parameters.solar import SolarParameters
-from .parameters.battery import BatteryParameters
-from .parameters.load import LoadParameters
+from data.input_parser import InputData
+from parameters.intervals import Interval
+from load import Load
+from solar import Solar
+from battery import Battery
+from site_pcc import SitePCC
+from model import Model
+from asset import Asset
+from energy_import_charge import EnergyImportCharge
+from parameters.tariff_charges import EnergyImportChargeParameters
+from parameters.site import SiteParameters
+from parameters.solar import SolarParameters
+from parameters.battery import BatteryParameters
+from parameters.load import LoadParameters
 
 
 INPUT_DATA_PATH = "data/input_data.csv"
@@ -79,7 +80,7 @@ def main():
         service_params=energy_import_charge_params,
     )
     
-    asset_group1: Site = Site(
+    asset_group1: SitePCC = SitePCC(
         model=model,
         assets=assets,
         services=[service1],

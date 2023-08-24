@@ -17,6 +17,7 @@ class SiteParameters(AssetGroupParameters):
         P_out_limit: float,
     ) -> "SiteParameters":
         return SiteParameters(
+            name="constant_limit_site",
             intervals=intervals,
             P_in_max=[P_in_limit for _ in intervals],
             P_out_max=[P_out_limit for _ in intervals],

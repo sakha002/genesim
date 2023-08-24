@@ -1,8 +1,8 @@
 from typing import List
-from .model import Model, VarType
-from .asset import Asset
-from .parameters.asset_group import AssetGroupParameters
-from .service import Service
+from model import Model, VarType
+from asset import Asset
+from parameters.asset_group import AssetGroupParameters
+from service import Service
 
 class AssetGroup:
     def __init__(

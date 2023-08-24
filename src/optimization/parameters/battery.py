@@ -27,6 +27,7 @@ class BatteryParameters(AssetParameters):
     ) -> "BatteryParameters":
         
         return BatteryParameters(
+            name="basic_battery",
             intervals=intervals,
             P_in_max=[nominal_power for _ in intervals],
             P_out_max=[nominal_power for _ in intervals],

@@ -15,6 +15,7 @@ class EnergyImportChargeParameters(ServiceParameters):
         import_charge_rate: float,
     ):
         return EnergyImportChargeParameters(
+            name="energy_import_charges",
             intervals=intervals,
             import_charge_rate=import_charge_rate,
             P_in_max=[None for _ in intervals],
@@ -35,6 +36,7 @@ class EnergyExportChargeParameters(ServiceParameters):
         export_charge_rate: float,
     ):
         return EnergyImportChargeParameters(
+            name="energy_export_charges",
             intervals=intervals,
             export_charge_rate=export_charge_rate,
             P_in_max=[None for _ in intervals],
@@ -57,6 +59,7 @@ class DemandResponseChargeParameters(ServiceParameters):
         demand_response_period_end: datetime,
     ) -> "DemandResponseChargeParameters":
         return DemandResponseChargeParameters(
+            name="demand_response_charges",
             intervals=intervals,
             demand_respond_charge_rate=demand_respond_charge_rate,
             demand_response_period_start=demand_response_period_start,
@@ -82,6 +85,7 @@ class DemandChargeParameters(ServiceParameters):
         demand_charge_period_end: datetime,
     ) -> "DemandChargeParameters":
         return DemandChargeParameters(
+            name="demand_charges",
             intervals=intervals,
             demand_charge_rate=demand_charge_rate,
             demand_charge_period_start=demand_charge_period_start,

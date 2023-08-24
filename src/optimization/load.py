@@ -1,6 +1,7 @@
-from .asset import Asset
-from .model import Model
-from .parameters.load import LoadParameters
+from __future__ import annotations
+from asset import Asset
+from model import Model
+from parameters.load import LoadParameters
 
 
 

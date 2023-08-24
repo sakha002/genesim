@@ -1,9 +1,10 @@
+from __future__ import annotations
 from typing import List
 from abc import abstractmethod
-from .model import Model, VarType   
-from .parameters.service import ServiceParameters
-from .asset import Asset
-from .opt_types import AssetGroupT
+from model import Model, VarType   
+from parameters.service import ServiceParameters
+from asset import Asset
+# from opt_types import AssetGroupT
 
 class Service:
     def __init__(
@@ -147,7 +148,7 @@ class Service:
         return
     
     @abstractmethod
-    def add_asset_group_coupling(self, asset_group: AssetGroupT) -> None:
+    def add_asset_group_coupling(self, asset_group: "assetgroup.AssetGroup") -> None:
         # the assetgroups will call this method on each service
         # in case the service needs to add any constraints/ costs to the asset group vars
         raise NotImplementedError
