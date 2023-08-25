@@ -1,6 +1,9 @@
-# from __future__ import annotations
 from typing import List
+import cylp
+from cvxpy import CBC
+
 from data.input_parser import InputData
+from data.output_writer import OutputData
 from parameters.intervals import Interval
 from load import Load
 from solar import Solar
@@ -9,15 +12,15 @@ from site_pcc import SitePCC
 from model import Model
 from asset import Asset
 from energy_import_charge import EnergyImportCharge
-from parameters.tariff_charges import EnergyImportChargeParameters
+from energy_export_charge import EnergyExportCharge
+from parameters.tariff_charges import EnergyImportChargeParameters, EnergyExportChargeParameters
 from parameters.site import SiteParameters
 from parameters.solar import SolarParameters
 from parameters.battery import BatteryParameters
 from parameters.load import LoadParameters
 
-
 INPUT_DATA_PATH = "data/input_data.csv"
-
+OUTPUT_DATA_PATH = "data/output_data.csv"
 
 
 
@@ -54,7 +57,12 @@ def main():
     )
     energy_import_charge_params: EnergyImportChargeParameters = EnergyImportChargeParameters.create_energy_import_charges(
         intervals=intervals,
-        energy_import_charge=0.1,
+        import_charge_rate=0.1,
+    )
+    
+    energy_export_charge_params: EnergyExportChargeParameters = EnergyExportChargeParameters.create_energy_export_charges(
+        intervals=intervals,
+        export_charge_rate=0.03,
     )
     
     
@@ -75,15 +83,20 @@ def main():
     assets: List[Asset]=[asset1, asset2, asset3]
 
     
-    service1 = EnergyImportCharge(
+    service1: EnergyImportCharge = EnergyImportCharge(
         model=model,
         service_params=energy_import_charge_params,
+    )
+    
+    service2: EnergyExportCharge = EnergyExportCharge(
+        model=model,
+        service_params=energy_export_charge_params,
     )
     
     asset_group1: SitePCC = SitePCC(
         model=model,
         assets=assets,
-        services=[service1],
+        services=[service1, service2],
         asset_group_params=site_params,
     )
     
@@ -91,7 +104,28 @@ def main():
     for asset in assets:
         asset.add_service_constraints()
     
-    model.solve(solver="CBC", verbose=True)
+    model.solve(solver=CBC, verbose=True)
+    
+    
+    battery_ac_powers: List[float] = asset3.get_battery_ac_power_vars()
+    site_ac_powers: List[float] = asset_group1.get_site_ac_power_vars()
+    
+    
+    outputs: List[OutputData] = [
+        OutputData(
+            time=interval.interval_end - interval.interval_duration,
+            battery_ac_power=battery_ac_powers[interval.index],
+            ppc_meter_ac_power=site_ac_powers[interval.index],
+        ) for interval in intervals
+    ]
+    
+    OutputData.write_to_csv(OUTPUT_DATA_PATH, outputs)
+    
+    var_vals = model.get_all_var_values()
+    
+    return
+    
+    
     
     
                 

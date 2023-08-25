@@ -3,11 +3,12 @@ from .service import ServiceParameters
 from .intervals import Interval
 from typing import List
 from datetime import datetime
+from dataclasses import dataclass
 
+@dataclass
 class EnergyImportChargeParameters(ServiceParameters):
     import_charge_rate: float
-    
-    
+
     
     @staticmethod
     def create_energy_import_charges(
@@ -17,16 +18,16 @@ class EnergyImportChargeParameters(ServiceParameters):
         return EnergyImportChargeParameters(
             name="energy_import_charges",
             intervals=intervals,
-            import_charge_rate=import_charge_rate,
             P_in_max=[None for _ in intervals],
             P_out_max=[None for _ in intervals],
             P_in_min=[0 for _ in intervals],
             P_out_min=[0 for _ in intervals],
+            import_charge_rate=import_charge_rate,
         )
         
     
     
-
+@dataclass
 class EnergyExportChargeParameters(ServiceParameters):
     export_charge_rate: float
     
@@ -35,7 +36,7 @@ class EnergyExportChargeParameters(ServiceParameters):
         intervals: List[Interval],
         export_charge_rate: float,
     ):
-        return EnergyImportChargeParameters(
+        return EnergyExportChargeParameters(
             name="energy_export_charges",
             intervals=intervals,
             export_charge_rate=export_charge_rate,
@@ -45,7 +46,7 @@ class EnergyExportChargeParameters(ServiceParameters):
             P_out_min=[0 for _ in intervals],
         )
 
-
+@dataclass
 class DemandResponseChargeParameters(ServiceParameters):
     demand_respond_charge_rate: float
     demand_response_period_start: datetime
@@ -70,7 +71,7 @@ class DemandResponseChargeParameters(ServiceParameters):
             P_out_min=[0 for _ in intervals],
         )
     
-    
+@dataclass
 class DemandChargeParameters(ServiceParameters):
     demand_charge_rate: float
     demand_charge_period_start: datetime

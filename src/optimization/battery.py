@@ -1,3 +1,4 @@
+from typing import List
 from asset import Asset
 from model import Model, VarType
 from parameters.battery import BatteryParameters
@@ -41,7 +42,9 @@ class Battery(Asset):
                     name=f"battery_{self.name}_soc_t{interval.index}_dynamic",
                     constraint=(
                         self.model.get_var(f"battery_{self.name}_soc_t{interval.index}")
-                        ==  self.asset_params.initial_energy
+                        ==  self.asset_params.initial_energy 
+                        + (self.model.get_var(f"asset_{self.name}_E_in_t{interval.index}") * self.asset_params.charge_efficiency)
+                        - (self.model.get_var(f"asset_{self.name}_E_out_t{interval.index}") * (1 / self.asset_params.discharge_efficiency))
                     ),
                 )
             
@@ -55,6 +58,25 @@ class Battery(Asset):
                         - (self.model.get_var(f"asset_{self.name}_E_out_t{interval.index}") * (1 / self.asset_params.discharge_efficiency))
                     ),
                 )
+        return
 
+    
+    # After Solve method
+    def get_battery_ac_power_vars(self) -> List[float]:
+        P_out_vars = [
+            self.model.get_var(f"asset_{self.name}_P_out_t{interval.index}")
+            for interval in self.asset_params.intervals
+        ]
+        
+        P_in_vars = [
+            self.model.get_var(f"asset_{self.name}_P_in_t{interval.index}")
+            for interval in self.asset_params.intervals
+        ]
+        
+        
+        return[
+            self.model.get_var_value(P_out_var) - self.model.get_var_value(P_in_var)
+            for P_out_var, P_in_var in zip(P_out_vars, P_in_vars)
+        ]
         
     

@@ -48,16 +48,18 @@ class Model:
             raise ValueError("the Variable type is not supported")
 
         if ub is not None:
-            self.constraints[f"{name}_upper_bound"] = var <= ub
+            self._constraints[f"{name}_upper_bound"] = var <= ub
         if lb is not None:
-            self.constraints[f"{name}_lower_bound"] = var >= lb
+            self._constraints[f"{name}_lower_bound"] = var >= lb
+        
+        self._vars[name] = var
         return var
     
     def get_var(self, name: str) -> Optional[Variable]:
         return self._vars.get(name, None)
         # return self._vars[name]
     
-    def sum_vars(self, vars: List[Optional[Variable]], coefs: Optional[List[float]]) -> Expression:
+    def sum_vars(self, vars: List[Optional[Variable]], coefs: Optional[List[float]]= None) -> Expression:
         if coefs is None:
             non_null_vars = [var for var in vars if var is not None]
             return sum(non_null_vars)
@@ -70,13 +72,13 @@ class Model:
 
 
     def add_constraint(self, name: str, constraint: Constraint) -> None:
-        self.constraints[name] = constraint
+        self._constraints[name] = constraint
     
     def get_constraints(self, names: Optional[List[str]] = None) -> List[Constraint]:
         if names is None:
-            return list(self.constraints.values())
+            return list(self._constraints.values())
         else:
-            return [self.constraints[name] for name in names]
+            return [self._constraints[name] for name in names]
     
 
     def solve(self, solver: str = "CBC", verbose: bool = True) -> None:
@@ -84,4 +86,5 @@ class Model:
         problem.solve(solver=solver, verbose=verbose)
 
   
-  
+    def get_all_var_values(self) -> Dict[str, float]:
+        return {name: var.value for name, var in self._vars.items()}

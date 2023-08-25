@@ -15,7 +15,7 @@ class SolarParameters(AssetParameters):
     def read_solar_data(intervals: List[Interval], solar_vals: List[float]) -> "SolarParameters":
         
         return SolarParameters(
-            name="uncontrollable_solar"
+            name="uncontrollable_solar",
             intervals=intervals,
             P_in_max=[0 for _ in intervals],
             P_out_max=[max(solar_vals) for _ in intervals],

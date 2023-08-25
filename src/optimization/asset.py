@@ -59,7 +59,7 @@ class Asset:
         for interval in self.asset_params.intervals:
             if self.model.get_var(f"asset_{self.name}_P_out_t{interval.index}") is not None:
                 self.model.add_constraint(
-                    name=f"asset_{self.name}_P_out_t{interval.index}_service_requirement",
+                    name=f"asset_{self.name}_P_out_t{interval.index}_services_requirement",
                     constraint=(
                         self.model.get_var(f"asset_{self.name}_P_out_t{interval.index}")
                         == self.model.sum_vars(
@@ -72,7 +72,7 @@ class Asset:
                 )
                 
                 self.model.add_constraint(
-                    name=f"asset_{self.name}_E_out_t{interval.index}_service_requirement",
+                    name=f"asset_{self.name}_E_out_t{interval.index}_services_requirement",
                     constraint=(
                         self.model.get_var(f"asset_{self.name}_E_out_t{interval.index}")
                         == self.model.sum_vars(
@@ -86,7 +86,7 @@ class Asset:
             
             if self.model.get_var(f"asset_{self.name}_P_in_t{interval.index}") is not None:
                 self.model.add_constraint(
-                    name=f"asset_{self.name}_P_in_t{interval.index}_service_requirement",
+                    name=f"asset_{self.name}_P_in_t{interval.index}_services_requirement",
                     constraint=(
                         self.model.get_var(f"asset_{self.name}_P_in_t{interval.index}")
                         == self.model.sum_vars(
@@ -99,7 +99,7 @@ class Asset:
                 )
                 
                 self.model.add_constraint(
-                    name=f"asset_{self.name}_E_in_t{interval.index}_service_requirement",
+                    name=f"asset_{self.name}_E_in_t{interval.index}_services_requirement",
                     constraint=(
                         self.model.get_var(f"asset_{self.name}_E_in_t{interval.index}")
                         == self.model.sum_vars(

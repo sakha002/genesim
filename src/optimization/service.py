@@ -104,7 +104,6 @@ class Service:
                         )
                     ),
                 )
-                
                 self.model.add_constraint(
                     name=f"service_{self.name}_E_out_t{interval.index}_asset_bind",
                     constraint=(

@@ -45,12 +45,10 @@ class AssetGroupParameters:
         for i in range(len(intervals)):
             
             if P_out_max[i] is not None:
-                
                 if P_out_max[i] < 0:
                     raise ValueError(
                         "P_out_max must be greater than 0"
                     )
-                    
                 if P_out_max[i] < P_out_min[i]:
                     raise ValueError(
                         "P_out_max must be greater than P_out_min"
@@ -61,17 +59,15 @@ class AssetGroupParameters:
                     raise ValueError(
                         "P_in_max must be greater than 0"
                     )
-                
                 if P_in_max[i] < P_in_min[i]:
                     raise ValueError(
                         "P_in_max must be greater than P_in_min"
                     )
             
-            if P_in_max[i] < 0:
+            if P_out_min[i] < 0:
                 raise ValueError(
                     "P_in_max must be greater than 0"
                 )
-            
             if P_in_min[i] < 0:
                 raise ValueError(
                     "P_in_min must be greater than 0"

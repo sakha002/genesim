@@ -7,11 +7,11 @@ from typing import List
 class InputData:
     time_stamp: datetime
     load: float
-    pv: float
+    solar: float
     
 
     @staticmethod
-    def read_csv_file(file_path) -> List["InputData"]:
+    def read_csv_file(file_path: str) -> List["InputData"]:
         with open(file_path) as csv_file:
             csv_reader = csv.reader(csv_file)
             header = next(csv_reader)
@@ -19,7 +19,7 @@ class InputData:
                 InputData(
                     time_stamp=datetime.strptime(row[0], '%m/%d/%y %H:%M'),
                     load=float(row[1]),
-                    pv=float(row[2]),                    
+                    solar=float(row[2]),                    
                 ) for row in csv_reader
             ]
         return data
