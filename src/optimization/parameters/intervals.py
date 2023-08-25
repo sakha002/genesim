@@ -11,6 +11,10 @@ class Interval:
     interval_duration: timedelta = timedelta(minutes=60)
     
     
+    @property
+    def length_in_hours(self) -> float:
+        return self.interval_duration.total_seconds() / 3600
+    
     @staticmethod
     def create_intervals_from_input(time_stamps: List[datetime]) -> List["Interval"]:
         # looks like we should assume interval beginning for the time stamps

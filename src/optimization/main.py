@@ -1,19 +1,26 @@
 from typing import List
 import cylp
 from cvxpy import CBC
-
+from datetime import time
 from data.input_parser import InputData
 from data.output_writer import OutputData
 from parameters.intervals import Interval
 from load import Load
 from solar import Solar
 from battery import Battery
-from site_pcc import SitePCC
+from itc_site import ITCSite
 from model import Model
 from asset import Asset
 from energy_import_charge import EnergyImportCharge
 from energy_export_charge import EnergyExportCharge
-from parameters.tariff_charges import EnergyImportChargeParameters, EnergyExportChargeParameters
+from demand_import_charge import DemandImportCharge
+from demand_response_charge import DemandResponseCharge
+from parameters.tariff_charges import(
+    EnergyImportChargeParameters,
+    EnergyExportChargeParameters,
+    DemandChargeParameters,
+    DemandResponseChargeParameters,
+)
 from parameters.site import SiteParameters
 from parameters.solar import SolarParameters
 from parameters.battery import BatteryParameters
@@ -65,6 +72,20 @@ def main():
         export_charge_rate=0.03,
     )
     
+    demand_charge_params: DemandChargeParameters = DemandChargeParameters.create_demand_charges(
+        intervals=intervals,
+        demand_charge_rate=9,
+        demand_charge_period_start=time(hour=17, minute=0),
+        demand_charge_period_end=time(hour=21, minute=0),
+    )
+    
+    demand_response_charge_params: DemandResponseChargeParameters = DemandResponseChargeParameters.create_demand_response_charges(
+        intervals=intervals,
+        demand_response_charge_rate=10,
+        demand_response_period_start=time(hour=19, minute=0),
+        demand_response_period_end=time(hour=20, minute=0),
+    )
+    
     
     model: Model = Model()
     
@@ -93,16 +114,23 @@ def main():
         service_params=energy_export_charge_params,
     )
     
-    asset_group1: SitePCC = SitePCC(
+    service3: DemandImportCharge = DemandImportCharge(
+        model=model,
+        service_params=demand_charge_params,
+    )
+    
+    service4: DemandResponseCharge = DemandResponseCharge(
+        model=model,
+        service_params=demand_response_charge_params,
+    )
+    
+    asset_group1: ITCSite = ITCSite(
         model=model,
         assets=assets,
-        services=[service1, service2],
+        services=[service1, service2, service3, service4],
         asset_group_params=site_params,
     )
     
-    # this part has to be done better later!
-    for asset in assets:
-        asset.add_service_constraints()
     
     model.solve(solver=CBC, verbose=True)
     
