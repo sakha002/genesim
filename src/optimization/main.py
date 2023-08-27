@@ -1,6 +1,7 @@
 from typing import List
-import cylp
-from cvxpy import CBC
+# import cylp
+# import cvxopt
+# from cvxpy import CBC
 from datetime import time
 from data.input_parser import InputData
 from data.output_writer import OutputData
@@ -9,7 +10,8 @@ from load import Load
 from solar import Solar
 from battery import Battery
 from itc_site import ITCSite
-from model import Model
+# from model import Model
+from model_gurobi import Model
 from asset import Asset
 from energy_import_charge import EnergyImportCharge
 from energy_export_charge import EnergyExportCharge
@@ -50,17 +52,17 @@ def main():
     )
     battery_params: BatteryParameters = BatteryParameters.load_constant_battery_data(
         intervals=intervals,
-        initial_energy=0,
-        energy_capacity=53,
+        initial_energy=0.0,
+        energy_capacity=53.0,
         charge_efficiency=0.95,
         discharge_efficiency=0.95,
-        min_soc=0,
-        nominal_power=25,
+        min_soc=0.0,
+        nominal_power=25.0,
     )
     site_params: SiteParameters = SiteParameters.create_constant_limit_site(
         intervals=intervals,
-        P_in_limit=1000,   # PCC limits We don't need this in this particular example, a large number so that it does not bind
-        P_out_limit=1000,
+        P_in_limit=1000.0,   # PCC limits We don't need this in this particular example, a large number so that it does not bind
+        P_out_limit=1000.0,
     )
     energy_import_charge_params: EnergyImportChargeParameters = EnergyImportChargeParameters.create_energy_import_charges(
         intervals=intervals,
@@ -74,14 +76,14 @@ def main():
     
     demand_charge_params: DemandChargeParameters = DemandChargeParameters.create_demand_charges(
         intervals=intervals,
-        demand_charge_rate=9,
+        demand_charge_rate=9.0,
         demand_charge_period_start=time(hour=17, minute=0),
         demand_charge_period_end=time(hour=21, minute=0),
     )
     
     demand_response_charge_params: DemandResponseChargeParameters = DemandResponseChargeParameters.create_demand_response_charges(
         intervals=intervals,
-        demand_response_charge_rate=10,
+        demand_response_charge_rate=10.0,
         demand_response_period_start=time(hour=19, minute=0),
         demand_response_period_end=time(hour=20, minute=0),
     )
@@ -132,7 +134,8 @@ def main():
     )
     
     
-    model.solve(solver=CBC, verbose=True)
+    # model.solve(solver=CBC, verbose=True)
+    model.solve()
     
     
     battery_ac_powers: List[float] = asset3.get_battery_ac_power_vars()
@@ -149,7 +152,11 @@ def main():
     
     OutputData.write_to_csv(OUTPUT_DATA_PATH, outputs)
     
-    var_vals = model.get_all_var_values()
+    # var_vals = model.get_all_var_values()
+    # dual_vars = model.get_dual_var_values()
+    # print(dual_vars)
+    # list = model.get_binding_constraints()
+    
     
     return
     

@@ -59,12 +59,12 @@ class Model:
         return self._vars.get(name, None)
         # return self._vars[name]
     
-    def sum_vars(self, vars: List[Optional[Variable]], coefs: Optional[List[float]]= None) -> Expression:
+    def sum_vars(self, variables: List[Optional[Variable]], coefs: Optional[List[float]]= None) -> Expression:
         if coefs is None:
-            non_null_vars = [var for var in vars if var is not None]
+            non_null_vars = [var for var in variables if var is not None]
             return sum(non_null_vars)
         else:
-            return sum([(var * coef if var is not None else 0) for var, coef in zip(vars, coefs)])
+            return sum([(var * coef if var is not None else 0) for var, coef in zip(variables, coefs)])
         
  
     def get_var_value(self, var: Variable) -> float:
@@ -82,9 +82,20 @@ class Model:
     
 
     def solve(self, solver: str = "CBC", verbose: bool = True) -> None:
-        problem = Problem(Minimize(self.objective), self.get_constraints())
-        problem.solve(solver=solver, verbose=verbose)
+        self._problem = Problem(Minimize(self.objective), self.get_constraints())
+        self._problem.solve(solver=solver, verbose=verbose)
 
   
     def get_all_var_values(self) -> Dict[str, float]:
         return {name: var.value for name, var in self._vars.items()}
+    
+    
+    def get_dual_var_values(self) -> Dict[str, float]:
+        dual_vars = dict()
+        for index, key in enumerate(self._constraints):
+            
+            # dual_vars[key] = self._problem.constraints[index].dual_value
+            if self._problem.constraints[index].dual_value is not None:
+                dual_vars[key] = self._problem.constraints[index].dual_value
+                
+        return dual_vars

@@ -1,10 +1,7 @@
 from __future__ import annotations
-from typing import List
 from abc import abstractmethod
 from model import Model, VarType   
 from parameters.service import ServiceParameters
-from asset import Asset
-# from opt_types import AssetGroupT
 
 class Service:
     def __init__(
@@ -22,8 +19,8 @@ class Service:
                 model.add_var(
                     name=f"service_{service_params.name}_P_out_t{interval.index}",
                     var_type=VarType.REAL,
-                    lb=service_params.P_out_min,
-                    ub=service_params.P_out_max,
+                    lb=service_params.P_out_min[interval.index],
+                    ub=service_params.P_out_max[interval.index],
                 )
                 # model.add_var(
                 #     name=f"service_{service_params.name}_E_out_t{interval.index}",
@@ -36,8 +33,8 @@ class Service:
                 model.add_var(
                     name=f"service_{service_params.name}_P_in_t{interval.index}",
                     var_type=VarType.REAL,
-                    lb=service_params.P_in_min,
-                    ub=service_params.P_in_max,
+                    lb=service_params.P_in_min[interval.index],
+                    ub=service_params.P_in_max[interval.index],
                 )
                 # model.add_var(
                 #     name=f"service_{service_params.name}_E_in_t{interval.index}",
@@ -151,5 +148,4 @@ class Service:
         # the assetgroups will call this method on each service
         # in case the service needs to add any constraints/ costs to the asset group vars
         raise NotImplementedError
-        
         

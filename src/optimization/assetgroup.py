@@ -23,8 +23,8 @@ class AssetGroup:
                 model.add_var(
                     name=f"asset_group_{self.name}_P_out_t{interval.index}",
                     var_type=VarType.REAL,
-                    lb=asset_group_params.P_out_min,
-                    ub=asset_group_params.P_out_max,
+                    lb=asset_group_params.P_out_min[interval.index],
+                    ub=asset_group_params.P_out_max[interval.index],
                 )
                 # model.add_var(
                 #     name=f"asset_group_{self.name}_E_out_t{interval.index}",
@@ -37,8 +37,8 @@ class AssetGroup:
                 model.add_var(
                     name=f"asset_group_{self.name}_P_in_t{interval.index}",
                     var_type=VarType.REAL,
-                    lb=asset_group_params.P_in_min,
-                    ub=asset_group_params.P_in_max,
+                    lb=asset_group_params.P_in_min[interval.index],
+                    ub=asset_group_params.P_in_max[interval.index],
                 )
                 # model.add_var(
                 #     name=f"asset_group_{self.name}_E_in_t{interval.index}",
@@ -74,13 +74,13 @@ class AssetGroup:
                     self.model.get_var(f"asset_group_{self.name}_P_out_t{interval.index}")
                     - self.model.get_var(f"asset_group_{self.name}_P_in_t{interval.index}")
                     ==  self.model.sum_vars(
-                        vars=[
+                        variables=[
                             self.model.get_var(f"asset_{asset.name}_P_out_t{interval.index}")
                             for asset in self.assets
                         ]
                     )
                     - self.model.sum_vars(
-                        vars=[
+                        variables=[
                             self.model.get_var(f"asset_{asset.name}_P_in_t{interval.index}")
                             for asset in self.assets
                         ]

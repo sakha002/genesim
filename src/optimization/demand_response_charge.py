@@ -21,10 +21,12 @@ class DemandResponseCharge(Service):
     
     def add_objective_terms(self) -> None:
         for interval in self.service_params.intervals:
+            interval_start = interval.interval_end - interval.interval_duration
             if (
-                (interval.interval_end.time() <= self.service_params.demand_response_period_end)
+                (interval_start.time() < self.service_params.demand_response_period_end)
                 and
-                ((interval.interval_end - interval.interval_duration).time() >= self.service_params.demand_response_period_start)
+                (interval_start.time() >= self.service_params.demand_response_period_start)
+               
             ):
                 self.model.add_objective_terms(
                     objective_terms= (
