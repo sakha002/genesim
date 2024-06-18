@@ -1,7 +1,6 @@
 from typing import List
-# import cylp
-# import cvxopt
-# from cvxpy import CBC
+import cylp
+from cvxpy import CBC
 from datetime import time
 from data.input_parser import InputData
 from data.output_writer import OutputData
@@ -10,8 +9,7 @@ from load import Load
 from solar import Solar
 from battery import Battery
 from itc_site import ITCSite
-# from model import Model
-from model_gurobi import Model
+from model import Model
 from asset import Asset
 from energy_import_charge import EnergyImportCharge
 from energy_export_charge import EnergyExportCharge
@@ -134,8 +132,7 @@ def main():
     )
     
     
-    # model.solve(solver=CBC, verbose=True)
-    model.solve()
+    model.solve(solver=CBC, verbose=True)
     
     
     battery_ac_powers: List[float] = asset3.get_battery_ac_power_vars()
