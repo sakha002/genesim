@@ -2,9 +2,10 @@ from typing import Dict, List
 
 from optclient.solver_utils.variable import Variable
 
-from src.genesym.element import Element
+from src.genesym.elements.element import Element
 
 class ElementGroup:
+
     """
     an ElementGroup is a group of elements, normally over a range of scnearios and a range of intervals
     we may have mutiple elements per scenaro/interval
@@ -65,3 +66,9 @@ class ElementGroup:
             scenario_vars.append(interval_vars)
             
         return scenario_vars
+    
+
+
+
+
+
