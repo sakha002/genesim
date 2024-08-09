@@ -47,7 +47,7 @@ class ElementStore:
     def get_element_by_name(self, name: ElementName) -> Dict[ScenarioIndex, Dict[IntervIndex, Any]]:
         return self._name_view[name]
     
-    def get_element_list_by_sceanrio(self, scenario: ScenarioIndex) -> Dict[ElementName, List[Any]]:
+    def get_element_list_by_scenario(self, scenario: ScenarioIndex) -> Dict[ElementName, List[Any]]:
         return self._name_interval_list_view[scenario]
 
     def get_element_list_by_scenario_name(self, scenario: ScenarioIndex, name: ElementName) -> List[Any]:

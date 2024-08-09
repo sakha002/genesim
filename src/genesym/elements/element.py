@@ -44,29 +44,39 @@ class Element(ABC):
         interval_index = self.interval.index or 'null'
         scenario_index = self.scenario.index or 'null'
 
-        variable.name =  f"{variable.name}_scenario_{scenario_index}_interval_{interval_index}"
+        variable.name =  f"{name}_scenario_{scenario_index}_interval_{interval_index}"
         _ = self.model.add_variable(variable)
         # one approach would be to use self.interval and self.scenario here to add them to the model
         return
 
     def add_expression(self, expression: LinExpr, name: str):
         self.expressions[name] = expression
-        # self.model.add_linear_expression(expression)
+        self.model.add_linear_expression(expression)
 
     def add_constraint(self, constraint: LinConstraint, name: str):
         self.constraints[name] = constraint
-        # self.model.add_linear_constraint(constraint)
+        self.model.add_linear_constraint(constraint)
     
     def add_objective(self, objective: LinExpr, name: str):
         self.objectives[name] = objective
-        # self.model.add_objective(objective, name)
+        self.model.add_objective(objective, name)
 
-    def get_element_vars_flat(self) -> Dict[str, Variable]:
-        return {
-            f"element_{self.name}_var_{name}": value for name, value in self.variables
+    def get_vars_flat(self) -> Dict[str, Variable]:
+        return  self._flaten_atrib_dicts('var', self.variables)
+
+    def get_exprs_flat(self) -> Dict[str, LinExpr]:
+        return self._flaten_atrib_dicts('expr', self.expressions)
+
+    def get_constrs_flat(self) -> Dict[str, LinConstraint]:
+        return self._flaten_atrib_dicts('constr', self.constraints)
+    
+    def get_objectives_flat(self) -> Dict[str, LinExpr]:
+        return self._flaten_atrib_dicts('objective', self.objectives)
+
+    def _flaten_atrib_dicts(self, collection_type:str, collection: Dict[str, Any]) -> Dict[str, Any]:
+        {
+            f"element_{self.name}_{collection_type}_{name}": value for name, value in collection.items()
         }
-
-
 
 # when we add constraints/ or expressions to the Element, they need to have the variables
 # attached to the model already

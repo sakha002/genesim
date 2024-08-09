@@ -16,4 +16,4 @@ ElementName =  NewType('ElementName', str)
 # would need to change, we would need to store Elements with this
 # but we will also Need to Store Other Type of Objects
 
-VarName = NewType('VarName', str)
+# VarName = NewType('VarName', str)
