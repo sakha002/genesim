@@ -93,3 +93,7 @@ class Element(ABC):
 # the dictionary that hold elment vars, and the one that holds model vars have diferent scope
 # we could give the responsibility of adding interval/scenario indexes to the model at the element level
 # or one above, i.e. the elementCollection
+
+
+
+# TODO: the ISolver class Must include adding the value of all the variables inside them after solving

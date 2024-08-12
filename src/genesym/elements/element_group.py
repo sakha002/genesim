@@ -1,4 +1,5 @@
 from typing import Dict, List, TypeVar, Callable
+from abc import ABC
 
 from optclient.solver_utils.variable import Variable
 from optclient.solver_utils.expression import LinExpr
@@ -10,7 +11,7 @@ from src.genesym.elements.types import ScenarioIndex, IntervIndex, ElementName
 
 T = TypeVar('T')
 
-class ElementGroup:
+class ElementGroup(ABC):
 
     """
     an ElementGroup is a group of elements, normally over a range of scnearios and a range of intervals
