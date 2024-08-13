@@ -1,8 +1,12 @@
 from dataclasses import dataclass
+from typing import   List
 
 from src.genesym.parameters.horizons.horizon import Horizon
+from src.genesym.parameters.scenarios.scenario_group import ScenarioInfo
+
+
 
 @dataclass
-class ModelParams:
+class ModelParam:
     horizon: Horizon
-    # scenario: 
+    scenario_info: ScenarioInfo
