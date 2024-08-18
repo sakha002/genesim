@@ -47,23 +47,18 @@ class Element(ABC):
         # NOTE: varable.name and name could be different
         # since the name should be unique in Element scope
         # variable.name should be unique in Model scope
-        # I could come back to this, and see if just variable as argument would be enough
         
-        self.variables[name] = variable
-
-        interval_index = self.interval.index or 'null'
-        scenario_index = self.scenario.index or 'null'
-
-        variable.name =  f"{name}_scenario_{scenario_index}_interval_{interval_index}"
-        _ = self.model.add_variable(variable)
-        # one approach would be to use self.interval and self.scenario here to add them to the model
-        return
+        # self.variables[name] = variable
+        variable.name = self._make_extended_name(name)
+        self.variables[name] = self.model.add_variable(variable)
 
     def add_expression(self, expression: LinExpr, name: str):
+        expression.name = self._make_extended_name(name)
         self.expressions[name] = expression
         self.model.add_linear_expression(expression)
 
     def add_constraint(self, constraint: LinConstraint, name: str):
+        constraint.name = self._make_extended_name(name)
         self.constraints[name] = constraint
         self.model.add_linear_constraint(constraint)
     
@@ -88,6 +83,11 @@ class Element(ABC):
             f"element_{self.name}_{collection_type}_{name}": value for name, value in collection.items()
         }
 
+    def _make_extended_name(self, name: str) -> str:
+        interval_index = self.interval.index if self.interval is not None else 'null'
+        scenario_index = self.scenario.index if self.scenario is not None else 'null'
+        return f"{name}_scenario_{scenario_index}_interval_{interval_index}"
+    
 # when we add constraints/ or expressions to the Element, they need to have the variables
 # attached to the model already
 # but still the addition of constraints, and objectives, happen gradually,
