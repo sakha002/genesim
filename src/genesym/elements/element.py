@@ -27,7 +27,17 @@ class Element(ABC):
     scenario: Optional[Scenario]
     name: str
 
-    def __init__(self):
+    def __init__(
+        self,
+        model: ISolver,
+        name: str,
+        interval: Optional[Interval] = None,
+        scenario: Optional[Scenario] = None,
+    ):
+        self.model = model
+        self.name = name
+        self.interval = interval
+        self.scenario = scenario
         self.variables = {}
         self.expressions = {}
         self.constraints = {}

@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, TypeVar
 
 from dataclasses import dataclass
 
@@ -17,3 +17,4 @@ class AssetPeriod:
     e_in_min: float = 0.0
 
 
+ParamAssetPeriodT = TypeVar("ParamAssetPeriodT", bound=AssetPeriod)

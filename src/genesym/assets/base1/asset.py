@@ -4,12 +4,11 @@ from typing import TypeVar, Generic
 
 from optclient.solver_utils.isolver import ISolver 
 
-# from src.genesym.elements.element_group import ElementGroup
+from src.genesym.assets.base1.asset_elements import AssetElementGT
+from src.genesym.parameters.assets.asset import ParamAssetT
+from src.genesym.parameters.model import ParamModelT
 
-from src.genesym.assets.base1.asset_elements import AssetElementG
-from src.genesym.assets.base1.contracts import AssetParamT, ModelParamT
 
-AssetElementGT = TypeVar('AssetElementGT', bound=AssetElementG)
 
 
 class Asset(ABC):
@@ -17,11 +16,11 @@ class Asset(ABC):
     def __init__(
         self,
         model: ISolver,
-        asset_param: AssetParamT,
-        model_param: ModelParamT,
+        asset_param: ParamAssetT,
+        model_param: ParamModelT,
         asset_element_g: AssetElementGT,
     ):
-        self.asset_model= asset_element_g(
+        self.asset_model = asset_element_g(
             model=model,
             model_param=model_param,
             asset_param=asset_param,
